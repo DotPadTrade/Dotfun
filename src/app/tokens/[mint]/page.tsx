@@ -9,6 +9,8 @@ import { TokenImage } from "@/components/dashboard/token-row";
 import { TokenMarketView } from "@/components/token/market-view";
 import { DiscoveredTokenHeader } from "@/components/token/discovered-header";
 import { curveProgress, timeAgo, shortAddress } from "@/lib/format";
+import { fetchSocialsFromUri, fetchTokenSocials, type TokenSocials } from "@/lib/token/onchain-metadata";
+import { SocialLinks } from "@/components/token/social-links";
 
 export const metadata = { title: "Token" };
 // Live registry + creator listings; render per request.
@@ -83,12 +85,23 @@ export default async function TokenDetailPage({
   const { mint } = await params;
   const launch = await fetchLaunch(mint);
 
+  // Social links come from the token's own off-chain metadata JSON — the
+  // registry record's metadataUri for DotPad launches, or the mint's
+  // on-chain Metaplex metadata for scanned external tokens. Unavailable
+  // links stay null (never fabricated).
+  let socials: TokenSocials = { website: null, twitter: null, telegram: null };
+  if (launch?.metadataUri) {
+    socials = await fetchSocialsFromUri(launch.metadataUri);
+  } else if (!launch) {
+    socials = await fetchTokenSocials(mint);
+  }
+
   // Discovered (or unknown) mints: live market analytics without a registry
   // record. The chart/trades/wallet sections derive from real on-chain swaps.
   if (!launch) {
     return (
       <div className="animate-fade-up mx-auto max-w-5xl">
-        <DiscoveredTokenHeader mint={mint} />
+        <DiscoveredTokenHeader mint={mint} socials={socials} />
         <div className="mb-4">
           <TokenMarketView mint={mint} />
         </div>
@@ -118,6 +131,7 @@ export default async function TokenDetailPage({
             <StatusBadge status={launch.status} />
             <Badge tone="neutral">{launch.network}</Badge>
           </div>
+          <SocialLinks socials={socials} className="mt-1.5" />
         </div>
         <div className="ml-auto flex items-center gap-2">
           {launch.mintAddress && <WatchButton mint={launch.mintAddress} />}

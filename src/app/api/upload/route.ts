@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { validateArtwork, validateMetadataUri } from "@/lib/metadata";
+import { parseTokenSocials, validateArtwork, validateMetadataUri } from "@/lib/metadata";
 import { getDb } from "@/lib/db";
 
 /**
@@ -76,6 +76,23 @@ export async function POST(req: Request) {
       metadata = JSON.parse(metaRaw) as Record<string, unknown>;
     } catch {
       return NextResponse.json({ error: "invalid_metadata_json" }, { status: 400 });
+    }
+    // Social links are re-normalized SERVER-SIDE before anything reaches IPFS:
+    // the on-chain JSON must carry validated absolute https URLs in the
+    // top-level fields scanners read (website/twitter/telegram). Anything
+    // unsafe (javascript:, data:, non-URL strings) is dropped, and legacy
+    // client shapes (`social` object) are flattened into the standard fields.
+    if (metadata && typeof metadata === "object" && !Array.isArray(metadata)) {
+      const socials = parseTokenSocials(metadata);
+      for (const key of ["website", "twitter", "telegram", "external_url", "social", "extensions"]) {
+        delete metadata[key];
+      }
+      if (socials.website) {
+        metadata.website = socials.website;
+        metadata.external_url = socials.website;
+      }
+      if (socials.twitter) metadata.twitter = socials.twitter;
+      if (socials.telegram) metadata.telegram = socials.telegram;
     }
   }
 

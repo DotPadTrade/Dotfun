@@ -8,8 +8,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { TokenImage } from "@/components/dashboard/token-row";
 import { Badge, Card } from "@/components/ui/primitives";
+import { SocialLinks } from "@/components/token/social-links";
 import { explorerUrl, solscanUrl, type ClusterId } from "@/lib/constants";
 import { shortAddress } from "@/lib/format";
+import type { TokenSocials } from "@/lib/metadata";
 
 // Build-time inlined network (no server round-trip in a client component).
 const CLUSTER: ClusterId = process.env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta" ? "mainnet-beta" : "devnet";
@@ -31,7 +33,7 @@ const SOURCE_LABEL: Record<string, string> = {
   "raydium.cpmm": "Raydium CPMM",
 };
 
-export function DiscoveredTokenHeader({ mint }: { mint: string }) {
+export function DiscoveredTokenHeader({ mint, socials }: { mint: string; socials?: TokenSocials | null }) {
   const [found, setFound] = useState<Discovered | null>(null);
   const [checked, setChecked] = useState(false);
 
@@ -72,6 +74,7 @@ export function DiscoveredTokenHeader({ mint }: { mint: string }) {
             {found?.status === "curve" && <Badge tone="mint">bonding curve</Badge>}
             {found?.status === "pool" && <Badge tone="success">pool</Badge>}
           </div>
+          {socials && <SocialLinks socials={socials} className="mb-1.5" />}
           <p className="mt-1 break-all font-mono text-2xs text-night-500">
             {shortAddress(mint, 8)}{" "}
             <a href={explorerUrl("mainnet-beta", "address", mint)} target="_blank" rel="noopener noreferrer" className="text-ice-300 hover:underline">
