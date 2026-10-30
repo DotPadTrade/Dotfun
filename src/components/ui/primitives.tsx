@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 
-/* RelayPad design-system primitives. Dark-first, restrained glow. */
+/* DotPad design-system primitives. Deep forest surfaces, emerald accents. */
 
 export function Card({
   children,
@@ -13,7 +13,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-2xl border border-night-700/70 bg-night-900/70 p-5 ${className}`}
+      className={`rounded-2xl border border-night-700/70 bg-night-900/70 p-5 transition-colors duration-200 hover:border-mint-700/70 ${className}`}
     >
       {children}
     </div>
@@ -40,7 +40,7 @@ export function Button({
   "aria-label"?: string;
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50";
+    "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 ease-out disabled:cursor-not-allowed disabled:opacity-50";
   const sizes = {
     sm: "px-3 py-1.5 text-sm",
     md: "px-4 py-2 text-sm",
@@ -48,11 +48,12 @@ export function Button({
   } as const;
   const variants = {
     primary:
-      "bg-mint-500 text-night-950 shadow-glow-mint hover:bg-mint-400 disabled:shadow-none",
+      "border border-mint-400/40 bg-mint-500 text-white shadow-glow-mint hover:border-mint-300/70 hover:bg-mint-400 hover:shadow-glow-emerald hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:bg-mint-500 disabled:hover:border-mint-400/40",
     secondary:
-      "border border-ice-600/50 bg-ice-600/10 text-ice-300 hover:bg-ice-600/20",
-    ghost: "text-night-500 hover:bg-night-800 hover:text-white",
-    danger: "bg-red-500/90 text-white hover:bg-red-500",
+      "border border-ice-600/40 bg-ice-600/10 text-ice-300 hover:border-ice-500/50 hover:bg-ice-600/20 disabled:hover:bg-ice-600/10 disabled:hover:border-ice-600/40",
+    ghost:
+      "text-night-400 hover:bg-night-800 hover:text-white disabled:hover:bg-transparent disabled:hover:text-night-400",
+    danger: "border border-red-400/30 bg-down text-white hover:bg-red-400/90",
   } as const;
   return (
     <button
@@ -75,7 +76,7 @@ export function Badge({
   tone?: "neutral" | "mint" | "ice" | "warn" | "danger" | "success";
 }) {
   const tones = {
-    neutral: "border-night-600 bg-night-800 text-night-500",
+    neutral: "border-night-700 bg-night-800 text-night-400",
     mint: "border-mint-700/50 bg-mint-700/10 text-mint-300",
     ice: "border-ice-600/50 bg-ice-600/10 text-ice-300",
     warn: "border-amber-500/40 bg-amber-500/10 text-amber-300",
@@ -107,8 +108,8 @@ export function Input({
       <input
         {...props}
         aria-invalid={error ? true : undefined}
-        className={`w-full rounded-xl border bg-night-850 px-3.5 py-2.5 text-sm text-white placeholder:text-night-500 focus:border-mint-500 focus:outline-none ${
-          error ? "border-red-500/60" : "border-night-600"
+        className={`w-full rounded-xl border bg-night-850 px-3.5 py-2.5 text-sm text-white placeholder:text-night-500 focus:border-mint-400 focus:outline-none ${
+          error ? "border-red-500/60" : "border-night-700"
         }`}
       />
       {hint && !error && <span className="mt-1 block text-xs text-night-500">{hint}</span>}
@@ -133,8 +134,8 @@ export function TextArea({
       <textarea
         {...props}
         aria-invalid={error ? true : undefined}
-        className={`w-full rounded-xl border bg-night-850 px-3.5 py-2.5 text-sm text-white placeholder:text-night-500 focus:border-mint-500 focus:outline-none ${
-          error ? "border-red-500/60" : "border-night-600"
+        className={`w-full rounded-xl border bg-night-850 px-3.5 py-2.5 text-sm text-white placeholder:text-night-500 focus:border-mint-400 focus:outline-none ${
+          error ? "border-red-500/60" : "border-night-700"
         }`}
       />
       {hint && !error && <span className="mt-1 block text-xs text-night-500">{hint}</span>}
@@ -146,7 +147,7 @@ export function TextArea({
 export function Spinner({ label }: { label?: string }) {
   return (
     <span className="inline-flex items-center gap-2 text-sm text-night-500" role="status">
-      <span className="h-4 w-4 animate-spin rounded-full border-2 border-night-600 border-t-mint-400" />
+      <span className="h-4 w-4 animate-spin rounded-full border-2 border-night-700 border-t-mint-400" />
       {label}
     </span>
   );
@@ -203,7 +204,7 @@ export function CopyChip({ value, label }: { value: string; label: string }) {
     <button
       onClick={() => void navigator.clipboard?.writeText(value)}
       title={`Copy ${label}`}
-      className="inline-flex max-w-full items-center gap-2 rounded-lg border border-night-600 bg-night-850 px-2.5 py-1 font-mono text-xs text-mint-300 hover:border-mint-600"
+      className="inline-flex max-w-full items-center gap-2 rounded-lg border border-night-700 bg-night-850 px-2.5 py-1 font-mono text-xs text-mint-300 transition-colors duration-200 hover:border-mint-500"
     >
       <span className="truncate">{value}</span>
       <span aria-hidden>⧉</span>

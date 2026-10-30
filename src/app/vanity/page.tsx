@@ -85,7 +85,7 @@ export default function VanityPage() {
               type="checkbox"
               checked={caseInsensitive}
               onChange={(e) => setCaseInsensitive(e.target.checked)}
-              className="mt-0.5 h-3.5 w-3.5 accent-[#00e68f]"
+              className="mt-0.5 h-3.5 w-3.5 accent-mint-400"
             />
             <span>
               Case-insensitive matching (matches either letter case — the generated address keeps its

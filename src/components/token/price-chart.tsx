@@ -45,7 +45,7 @@ export function PriceChart({
     canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "#0a0d12";
+    ctx.fillStyle = "#0D1911";
     ctx.fillRect(0, 0, w, h);
     if (candles.length === 0) return;
 
@@ -69,8 +69,8 @@ export function PriceChart({
     const bw = Math.max(2, Math.min(14, (chartW / candles.length) * 0.7));
 
     // Grid + y labels
-    ctx.strokeStyle = "#1b2330";
-    ctx.fillStyle = "#5b6779";
+    ctx.strokeStyle = "#1C3525";
+    ctx.fillStyle = "#74877B";
     ctx.font = "10px monospace";
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++) {
@@ -82,7 +82,7 @@ export function PriceChart({
       ctx.stroke();
       ctx.fillText(p < 1 ? p.toPrecision(3) : p.toLocaleString(undefined, { maximumFractionDigits: 2 }), w - padR + 4, yy + 3);
     }
-    ctx.fillStyle = "#5b6779";
+    ctx.fillStyle = "#74877B";
     ctx.fillText(new Date(t0 * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), padL, h - 8);
     ctx.fillText(new Date(t1 * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), w - padR - 46, h - 8);
 
@@ -90,8 +90,8 @@ export function PriceChart({
       candles.forEach((c) => {
         const cx = x(c.time) + (chartW / candles.length) / 2 - bw / 2;
         const up = c.close >= c.open;
-        ctx.strokeStyle = up ? "#22c55e" : "#ef4444";
-        ctx.fillStyle = up ? "#22c55e" : "#ef4444";
+        ctx.strokeStyle = up ? "#22c55e" : "#E05252";
+        ctx.fillStyle = up ? "#22c55e" : "#E05252";
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(cx + bw / 2, y(c.high));
@@ -102,7 +102,7 @@ export function PriceChart({
         ctx.fillRect(cx, Math.min(yo, yc), bw, Math.max(1, Math.abs(yc - yo)));
       });
     } else {
-      ctx.strokeStyle = "#34d399";
+      ctx.strokeStyle = "#22C55E";
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       candles.forEach((c, i) => {
@@ -119,20 +119,20 @@ export function PriceChart({
     candles.forEach((c) => {
       const cx = x(c.time) + (chartW / candles.length) / 2 - bw / 2;
       const vh = (c.volume / maxVol) * volH;
-      ctx.fillStyle = c.close >= c.open ? "rgba(34,197,94,0.45)" : "rgba(239,68,68,0.45)";
+      ctx.fillStyle = c.close >= c.open ? "rgba(34,197,94,0.45)" : "rgba(224,82,82,0.45)";
       ctx.fillRect(cx, h - 26 - vh, bw, vh);
     });
 
     // Last price dashed line
     const last = candles[candles.length - 1].close;
-    ctx.strokeStyle = "#64748b";
+    ctx.strokeStyle = "#34D399";
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(padL, y(last));
     ctx.lineTo(w - padR, y(last));
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#86EFAC";
     ctx.fillText(last < 1 ? last.toPrecision(3) : last.toLocaleString(undefined, { maximumFractionDigits: 2 }), w - padR + 4, y(last) - 3);
 
     // Trade markers (on-page trades with a known time and price)
@@ -141,7 +141,7 @@ export function PriceChart({
       if (t.blockTime < t0 || t.blockTime > t1) return;
       const px = x(t.blockTime);
       const py = y(t.priceSol);
-      ctx.fillStyle = t.kind === "buy" ? "#22c55e" : "#ef4444";
+      ctx.fillStyle = t.kind === "buy" ? "#22c55e" : "#E05252";
       ctx.beginPath();
       ctx.arc(px, py, 2.2, 0, Math.PI * 2);
       ctx.fill();
@@ -152,12 +152,12 @@ export function PriceChart({
       const c = candles[Math.min(hover.index, candles.length - 1)];
       if (c) {
         const cx = x(c.time) + (chartW / candles.length) / 2;
-        ctx.strokeStyle = "#334155";
+        ctx.strokeStyle = "#2E7045";
         ctx.beginPath();
         ctx.moveTo(cx, padT);
         ctx.lineTo(cx, h - 26);
         ctx.stroke();
-        ctx.fillStyle = "#e2e8f0";
+        ctx.fillStyle = "#F5F7F5";
         ctx.font = "10px monospace";
         const f = (v: number) => (v < 1 ? v.toPrecision(3) : v.toFixed(4));
         ctx.fillText(

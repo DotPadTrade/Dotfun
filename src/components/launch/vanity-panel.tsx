@@ -48,7 +48,7 @@ export function VanityPanel({
           type="checkbox"
           checked={enabled}
           onChange={(e) => onToggle(e.target.checked)}
-          className="h-4 w-4 accent-[#00e68f]"
+          className="h-4 w-4 accent-mint-400"
         />
         <span className="text-sm font-medium text-white">
           Generate a vanity mint address
@@ -95,7 +95,7 @@ export function VanityPanel({
               type="checkbox"
               checked={caseInsensitive}
               onChange={(e) => setCaseInsensitive(e.target.checked)}
-              className="mt-0.5 h-3.5 w-3.5 accent-[#00e68f]"
+              className="mt-0.5 h-3.5 w-3.5 accent-mint-400"
             />
             <span>
               Case-insensitive matching (matches either letter case — the generated address keeps its

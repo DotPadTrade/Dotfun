@@ -5,33 +5,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // RelayPad terminal palette — deep charcoal, near-black surfaces.
+        // DotPad forest identity — deep forest-green surfaces, emerald accents,
+        // inspired by the official logo (dark green + white mark).
         night: {
-          950: "#08090c",
-          900: "#0c0e12",
-          850: "#101318",
-          800: "#151920",
-          700: "#1e232b",
-          600: "#2a3038",
-          500: "#3e4650",
-          400: "#5c646f",
+          950: "#050B07", // primary background
+          900: "#09130D", // secondary background (sidebar, topbar, modals)
+          850: "#0D1911", // card background
+          800: "#12251A", // elevated surface / hover surface
+          700: "#1C3525", // borders
+          600: "#2E7045", // hover borders / accent borders
+          500: "#74877B", // faint text (hints, footnotes)
+          400: "#9CAFA1", // secondary text
         },
         mint: {
-          300: "#8ae8a0",
-          400: "#55d26c",
-          500: "#2eb246",
-          600: "#1f8f36",
-          700: "#176b2a",
+          300: "#86EFAC", // soft green
+          400: "#22C55E", // bright accent
+          500: "#16A34A", // primary emerald
+          600: "#15803D",
+          700: "#166534", // deep forest border/tint
         },
         ice: {
-          300: "#a5d8ff",
-          400: "#74c0fc",
-          500: "#3b9eff",
-          600: "#1c7ed6",
+          300: "#A7F3D0", // soft mint text
+          400: "#6EE7B7",
+          500: "#34D399",
+          600: "#10B981",
         },
         // Performance colors (verified positive/negative only)
-        up: "#22c55e",
-        down: "#ef4444",
+        up: "#22C55E",
+        down: "#E05252", // restrained red for negative movement
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
@@ -41,8 +42,9 @@ const config: Config = {
         "2xs": ["0.6875rem", "1rem"],
       },
       boxShadow: {
-        panel: "0 1px 2px rgba(0,0,0,0.4)",
-        "glow-mint": "0 0 18px -6px rgba(46, 178, 70, 0.45)",
+        panel: "0 1px 2px rgba(0,0,0,0.5), 0 12px 32px -16px rgba(0,0,0,0.55)",
+        "glow-mint": "0 0 18px -6px rgba(34, 197, 94, 0.4)",
+        "glow-emerald": "0 6px 20px -8px rgba(34, 197, 94, 0.5)",
       },
       keyframes: {
         "pulse-soft": {
@@ -64,3 +66,4 @@ const config: Config = {
 };
 
 export default config;
+
