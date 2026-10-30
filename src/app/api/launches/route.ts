@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { getDb } from "@/lib/db";
+import { getDb, isDatabaseBootError } from "@/lib/db";
 import { curveProgress } from "@/lib/format";
 
 /**
@@ -78,6 +78,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ launch }, { status: launch.createdAt === launch.updatedAt ? 201 : 200 });
   } catch (err) {
     console.error("[api/launches] db error", err);
+    if (isDatabaseBootError(err)) {
+      return NextResponse.json(
+        { error: "database_not_initialized", message: "The registry database schema is not initialized yet. It is created automatically on server start; if this persists, run npx prisma migrate deploy." },
+        { status: 503, headers: { "retry-after": "30" } },
+      );
+    }
     return NextResponse.json({ error: "database_error" }, { status: 500 });
   }
 }
@@ -152,6 +158,12 @@ export async function GET(req: Request) {
     return NextResponse.json({ launches });
   } catch (err) {
     console.error("[api/launches] db error", err);
+    if (isDatabaseBootError(err)) {
+      return NextResponse.json(
+        { error: "database_not_initialized", message: "The registry database schema is not initialized yet. It is created automatically on server start; if this persists, run npx prisma migrate deploy." },
+        { status: 503, headers: { "retry-after": "30" } },
+      );
+    }
     return NextResponse.json({ error: "database_error" }, { status: 500 });
   }
 }
