@@ -28,7 +28,7 @@ export default function DashboardHomePage() {
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/relaypad-banner.jpg"
+            src="/dotpad-banner.jpg"
             alt=""
             aria-hidden="true"
             className="h-full w-full object-cover object-center opacity-70"

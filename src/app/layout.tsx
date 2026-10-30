@@ -9,7 +9,7 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 /**
  * metadataBase origin — resolves relative Open Graph / Twitter image URLs
- * (e.g. /relaypad-banner.jpg) to absolute URLs.
+ * (e.g. /dotpad-banner.jpg) to absolute URLs.
  *
  * - Production (Vercel builds): VERCEL_PROJECT_PRODUCTION_URL is injected by
  *   the platform and reflects the production domain (currently
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       "Launch tokens on Solana via Pump.fun → PumpSwap or Raydium LaunchLab → CPMM. Choose your route.",
     siteName: "DotPad",
     type: "website",
-    images: [{ url: "/relaypad-banner.jpg", width: 2048, height: 682, alt: "DotPad" }],
+    images: [{ url: "/dotpad-banner.jpg", width: 2047, height: 682, alt: "DotPad" }],
   },
 };
 
