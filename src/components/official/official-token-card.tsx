@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Official $RELAY Token card.
+ * Official $DOT Token card.
  *
  * Public, read-only display of the official token identity (name, symbol,
  * network, contract address). Fetches the sanitized view from the guarded
@@ -140,11 +140,11 @@ function renderCard(
             <h2 className="text-base font-semibold tracking-tight text-white">
               Official $RELAY Token
               <span className="ml-2 text-2xs font-normal uppercase tracking-wider text-night-500">
-                RelayPad
+                DotPad
               </span>
             </h2>
             <p className="text-2xs text-night-500">
-              RelayPad&apos;s official token — {view.networkLabel}
+              DotPad&apos;s official token — {view.networkLabel}
             </p>
           </div>
         </div>
@@ -168,7 +168,7 @@ function renderCard(
               href={view.explorerHref}
               target="_blank"
               rel="noopener noreferrer"
-              title="View the official $RELAY token on Solana Explorer"
+              title="View the official $DOT token on Solana Explorer"
               className={`min-w-0 flex-1 break-all font-mono text-xs underline decoration-night-600 underline-offset-2 hover:decoration-ice-400 sm:text-sm text-mint-300`}
             >
               {view.displayValue}
@@ -199,7 +199,7 @@ function renderCard(
             title={
               view.copyable
                 ? "Copy address"
-                : "Copying is disabled — the official $RELAY token has not been announced yet"
+                : "Copying is disabled — the official $DOT token has not been announced yet"
             }
           >
             <Button
@@ -210,7 +210,7 @@ function renderCard(
               aria-label={
                 view.copyable
                   ? "Copy official token address"
-                  : "Copying is disabled until the official $RELAY token is announced"
+                  : "Copying is disabled until the official $DOT token is announced"
               }
               className="shrink-0"
             >

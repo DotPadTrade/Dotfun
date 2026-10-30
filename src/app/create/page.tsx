@@ -107,7 +107,7 @@ export default function CreateTokenPage() {
         <Card>
           <h1 className="text-lg font-semibold tracking-tight text-white">Create token</h1>
           <p className="mt-2 text-sm text-night-500">
-            Connect a Solana wallet to start. RelayPad never requests seed
+            Connect a Solana wallet to start. DotPad never requests seed
             phrases or private keys — you approve every transaction yourself.
           </p>
         </Card>
@@ -188,7 +188,7 @@ export default function CreateTokenPage() {
             label="Token name"
             value={form.name}
             onChange={(e) => set("name", e.target.value)}
-            placeholder="Relay Test Token"
+            placeholder="Dot Test Token"
             maxLength={64}
           />
           <Input

@@ -45,7 +45,7 @@ export default function StatusPage() {
     <div className="animate-fade-up mx-auto w-full min-w-0 max-w-5xl">
       <header className="mb-4">
         <h1 className="text-lg font-semibold tracking-tight text-white">Network Status</h1>
-        <p className="mt-0.5 text-2xs text-night-500">Live RPC health and the programs RelayPad integrates with.</p>
+        <p className="mt-0.5 text-2xs text-night-500">Live RPC health and the programs DotPad integrates with.</p>
       </header>
 
       {/* Two-column on desktop (RPC 1 : Programs 1.2); stacked below lg */}
@@ -97,7 +97,7 @@ export default function StatusPage() {
       </div>
 
       <p className="text-2xs text-night-500">
-        RelayPad derives every program interaction from these addresses at request time and fails
+        DotPad derives every program interaction from these addresses at request time and fails
         honestly when a program or configuration is unavailable on the selected cluster.
       </p>
     </div>

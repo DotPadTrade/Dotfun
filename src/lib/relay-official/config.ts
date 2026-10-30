@@ -34,7 +34,7 @@ export const RELAY_OFFICIAL_ROLE_META: Record<
   W1: {
     label: "Creator-fee receiver",
     description:
-      "Official $RELAY creator-fee recipient (recorded at token launch). Receives verified creator-fee collections.",
+      "Official $DOT creator-fee recipient (recorded at token launch). Receives verified creator-fee collections.",
   },
   W2: {
     label: "Buyback treasury",
@@ -78,7 +78,7 @@ function readAddress(
 export interface RelayOfficialConfig {
   network: ClusterId;
   wallets: RelayOfficialWalletConfig[];
-  /** Official $RELAY mint, or null until launched/recorded. */
+  /** Official $DOT mint, or null until the new verified mint is provided. */
   mint: string | null;
   /** True when at least one treasury wallet is configured. */
   anyWalletConfigured: boolean;
@@ -101,6 +101,7 @@ export function getRelayOfficialConfig(
       | "RELAY_OFFICIAL_OPS_TREASURY"
       | "RELAY_OFFICIAL_DEV_WALLET"
       | "RELAY_OFFICIAL_MINT"
+      | "DOTPAD_OFFICIAL_MINT"
       | "RELAY_OFFICIAL_NETWORK"
       | "RELAY_OFFICIAL_ENABLED"
       | "NEXT_PUBLIC_RELAYPAD_NETWORK"
@@ -113,6 +114,7 @@ export function getRelayOfficialConfig(
       | "RELAY_OFFICIAL_OPS_TREASURY"
       | "RELAY_OFFICIAL_DEV_WALLET"
       | "RELAY_OFFICIAL_MINT"
+      | "DOTPAD_OFFICIAL_MINT"
       | "RELAY_OFFICIAL_NETWORK"
       | "RELAY_OFFICIAL_ENABLED"
       | "NEXT_PUBLIC_RELAYPAD_NETWORK"
@@ -136,7 +138,11 @@ export function getRelayOfficialConfig(
       address: read.address,
     };
   });
-  const mintReadRaw = env.RELAY_OFFICIAL_MINT?.trim() ?? "";
+  // DotPad rebrand: the displayed official-token identity comes from the NEW
+  // DOTPAD_OFFICIAL_MINT variable. The legacy RELAY_OFFICIAL_MINT value is
+  // intentionally NOT reused as the $DOT mint — the official $DOT dashboard
+  // stays in its "not announced yet" state until the new verified mint is set.
+  const mintReadRaw = env.DOTPAD_OFFICIAL_MINT?.trim() ?? "";
   // The explicit placeholder is an intentional "not announced yet" marker —
   // treated exactly like an unset value so the treasury dashboard and the
   // public token section stay consistent (never a misconfiguration).

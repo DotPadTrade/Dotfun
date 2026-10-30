@@ -287,7 +287,7 @@ export function TokenMarketView({ mint }: { mint: string }) {
           )}
           {data?.creatorActivity && (
             <p className="mt-4 rounded-lg border border-ice-600/40 bg-ice-600/10 p-2 text-2xs text-ice-300">
-              Creator wallet activity (verified via RelayPad launch record): {data.creatorActivity.trades} trades ·{" "}
+              Creator wallet activity (verified via DotPad launch record): {data.creatorActivity.trades} trades ·{" "}
               {data.creatorActivity.boughtToken.toLocaleString(undefined, { maximumFractionDigits: 0 })} bought ·{" "}
               {data.creatorActivity.soldToken.toLocaleString(undefined, { maximumFractionDigits: 0 })} sold
             </p>

@@ -159,7 +159,7 @@ export function VanityPanel({
               <p className="mt-2 rounded border border-down/40 bg-down/10 p-2 text-2xs text-down">
                 ⚠ The export file contains the SECRET KEY that fully controls this mint. It is
                 created only when you click and confirm — never sent to any server, never logged,
-                never stored by RelayPad. Keep it offline if you keep it at all.
+                never stored by DotPad. Keep it offline if you keep it at all.
               </p>
             </div>
           )}
@@ -187,7 +187,7 @@ export function VanityPanel({
 
       {!enabled && (
         <p className="text-xs text-night-500">
-          Skipping is recommended for first launches: RelayPad will use a standard
+          Skipping is recommended for first launches: DotPad will use a standard
           randomly-generated mint address.
         </p>
       )}

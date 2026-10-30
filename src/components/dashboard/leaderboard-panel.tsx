@@ -84,7 +84,7 @@ export function LeaderboardPanel({ full = false }: { full?: boolean }) {
       ) : rows.length === 0 ? (
         <PanelEmpty
           message="No creator data yet."
-          hint="Rankings appear once creators record launches through RelayPad."
+          hint="Rankings appear once creators record launches through DotPad."
         />
       ) : (
         <ul>

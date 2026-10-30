@@ -31,7 +31,7 @@ const placeholderView: OfficialTokenView = {
   mint: null,
   copyable: false,
   badgeLabel: "CA NOT OFFICIAL YET",
-  message: "The official $RELAY token has not been announced yet.",
+  message: "The official $DOT token has not been announced yet.",
   explorerHref: null,
 };
 

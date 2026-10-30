@@ -57,7 +57,7 @@ export function LaunchProgressPanel({
       )}
       {progress.phase === "unresolved" && (
         <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-200">
-          RelayPad could not verify this transaction&apos;s final status yet — it may still
+          DotPad could not verify this transaction&apos;s final status yet — it may still
           land. Do NOT launch again until the signature above has been checked on the
           Solana Explorer: submitting the same launch twice spends SOL twice.
         </p>
@@ -74,7 +74,7 @@ export function LaunchProgressPanel({
         </p>
       )}
       <p className="text-xs text-night-500">
-        RelayPad reports on-chain reality only. If the transaction failed, check
+        DotPad reports on-chain reality only. If the transaction failed, check
         the signature on the explorer before retrying — a retry after a landed
         failure is a new, separate transaction.
       </p>

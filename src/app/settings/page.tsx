@@ -54,7 +54,7 @@ export default function SettingsPage() {
             </Row>
           </dl>
           <p className="mt-4 text-xs text-night-500">
-            RelayPad never requests seed phrases or private keys. Transactions
+            DotPad never requests seed phrases or private keys. Transactions
             are signed in your wallet; the optional vanity mint keypair lives
             only in this browser tab&apos;s memory and disappears on refresh.
           </p>

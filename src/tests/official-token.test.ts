@@ -26,7 +26,7 @@ function viewFromConfig(
 describe("getRelayOfficialConfig — mint placeholder handling", () => {
   it("treats the exact placeholder value exactly like an unset mint", () => {
     const config = getRelayOfficialConfig({
-      RELAY_OFFICIAL_MINT: RELAY_OFFICIAL_MINT_PLACEHOLDER,
+      DOTPAD_OFFICIAL_MINT: RELAY_OFFICIAL_MINT_PLACEHOLDER,
     });
     expect(config.mint).toBeNull();
     expect(config.invalid.some((i) => i.role === "MINT")).toBe(false);
@@ -40,7 +40,7 @@ describe("getRelayOfficialConfig — mint placeholder handling", () => {
 
   it("still flags a genuinely invalid mint value as a misconfiguration", () => {
     const config = getRelayOfficialConfig({
-      RELAY_OFFICIAL_MINT: "not-a-valid-base58-address!!!",
+      DOTPAD_OFFICIAL_MINT: "not-a-valid-base58-address!!!",
     });
     expect(config.mint).toBeNull();
     expect(config.invalid).toEqual([
@@ -49,7 +49,7 @@ describe("getRelayOfficialConfig — mint placeholder handling", () => {
   });
 
   it("accepts a valid configured mint", () => {
-    const config = getRelayOfficialConfig({ RELAY_OFFICIAL_MINT: RELAY_MINT });
+    const config = getRelayOfficialConfig({ DOTPAD_OFFICIAL_MINT: RELAY_MINT });
     expect(config.mint).toBe(RELAY_MINT);
     expect(config.invalid.some((i) => i.role === "MINT")).toBe(false);
   });
@@ -65,7 +65,7 @@ describe("officialTokenView — placeholder state", () => {
     expect(view.displayValue).toBe(RELAY_OFFICIAL_MINT_PLACEHOLDER);
     expect(view.badgeLabel).toBe("CA NOT OFFICIAL YET");
     expect(view.message).toBe(
-      "The official $RELAY token has not been announced yet.",
+      "The official $DOT token has not been announced yet.",
     );
     expect(view.copyable).toBe(false);
     expect(view.mint).toBeNull();
@@ -75,7 +75,7 @@ describe("officialTokenView — placeholder state", () => {
 
   it("renders the identical honest state when the placeholder is explicitly configured", () => {
     const explicit = viewFromConfig({
-      RELAY_OFFICIAL_MINT: RELAY_OFFICIAL_MINT_PLACEHOLDER,
+      DOTPAD_OFFICIAL_MINT: RELAY_OFFICIAL_MINT_PLACEHOLDER,
       RELAY_OFFICIAL_NETWORK: "mainnet-beta",
     });
     const unset = viewFromConfig({ RELAY_OFFICIAL_NETWORK: "mainnet-beta" });
@@ -91,13 +91,13 @@ describe("officialTokenView — placeholder state", () => {
 describe("officialTokenView — invalid configuration state", () => {
   it("disables copy and shows a clear error without exposing the raw value", () => {
     const view = viewFromConfig({
-      RELAY_OFFICIAL_MINT: "%%definitely-not-valid%%",
+      DOTPAD_OFFICIAL_MINT: "%%definitely-not-valid%%",
       RELAY_OFFICIAL_NETWORK: "mainnet-beta",
     });
     expect(view.status).toBe("invalid");
     expect(view.badgeLabel).toBe("INVALID CONFIGURATION");
     expect(view.copyable).toBe(false);
-    expect(view.message).toContain("RELAY_OFFICIAL_MINT");
+    expect(view.message).toContain("DOTPAD_OFFICIAL_MINT");
     expect(view.message).toContain("not a valid Solana address");
     // The raw invalid value must never be rendered publicly.
     expect(JSON.stringify(view)).not.toContain("definitely-not-valid");
@@ -108,7 +108,7 @@ describe("officialTokenView — invalid configuration state", () => {
 describe("officialTokenView — configured (valid) state", () => {
   it("displays the complete address and enables copying", () => {
     const view = viewFromConfig({
-      RELAY_OFFICIAL_MINT: RELAY_MINT,
+      DOTPAD_OFFICIAL_MINT: RELAY_MINT,
       RELAY_OFFICIAL_NETWORK: "mainnet-beta",
     });
     expect(view.status).toBe("configured");
@@ -122,14 +122,14 @@ describe("officialTokenView — configured (valid) state", () => {
 
   it("links the network-aware explorer only for a configured mint", () => {
     const mainnet = viewFromConfig({
-      RELAY_OFFICIAL_MINT: RELAY_MINT,
+      DOTPAD_OFFICIAL_MINT: RELAY_MINT,
       RELAY_OFFICIAL_NETWORK: "mainnet-beta",
     });
     expect(mainnet.explorerHref).toBe(
       `https://explorer.solana.com/address/${RELAY_MINT}`,
     );
     const devnet = viewFromConfig({
-      RELAY_OFFICIAL_MINT: RELAY_MINT,
+      DOTPAD_OFFICIAL_MINT: RELAY_MINT,
       RELAY_OFFICIAL_NETWORK: "devnet",
     });
     expect(devnet.explorerHref).toBe(

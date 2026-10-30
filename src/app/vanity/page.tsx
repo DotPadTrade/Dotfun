@@ -166,7 +166,7 @@ export default function VanityPage() {
               <p className="mt-2 rounded border border-down/40 bg-down/10 p-2 text-2xs text-down">
                 ⚠ The export file contains the SECRET KEY that fully controls this mint. It is
                 created only when you click and confirm — never sent to any server, never logged,
-                never stored by RelayPad. Keep it offline if you keep it at all.
+                never stored by DotPad. Keep it offline if you keep it at all.
               </p>
             </div>
           )}
@@ -187,14 +187,14 @@ export default function VanityPage() {
 
           <p className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-2.5 text-2xs text-amber-300">
             <strong>Security:</strong> the generated secret key is created and kept only in this
-            browser tab&apos;s memory. RelayPad never receives, stores, or logs it. Export is manual
+            browser tab&apos;s memory. DotPad never receives, stores, or logs it. Export is manual
             and explicit — download only if you understand the risk, and keep the file offline.
           </p>
 
           <div className="rounded-lg border border-night-700 bg-night-800/60 p-3 text-2xs text-night-500">
             <p className="mb-1 font-medium text-night-400">How to use it in a launch</p>
             The create flow&apos;s “Configure Launch” step includes the same generator. A vanity
-            keypair generated here can be verified there — RelayPad always checks that the final
+            keypair generated here can be verified there — DotPad always checks that the final
             on-chain mint matches the vanity address before review.
             <Link href="/create" className="ml-1 text-mint-400 hover:underline">
               Open the create flow →

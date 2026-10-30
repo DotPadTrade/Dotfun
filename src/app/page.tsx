@@ -145,7 +145,7 @@ export default function DashboardHomePage() {
       </div>
 
       {/* Official $RELAY token — public CA display with honest status */}
-      <section aria-label="Official $RELAY token" className="mt-3">
+      <section aria-label="Official $DOT token" className="mt-3">
         <OfficialTokenCard initialView={officialToken} />
       </section>
     </div>

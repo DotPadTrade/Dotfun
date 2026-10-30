@@ -21,7 +21,7 @@ const SOCIAL_LINKS = [
 
 function SocialLinks() {
   return (
-    <div className="flex items-center gap-1" aria-label="RelayPad social links">
+    <div className="flex items-center gap-1" aria-label="DotPad social links">
       {SOCIAL_LINKS.map((s) => (
         <a
           key={s.href}
@@ -192,10 +192,10 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
         >
           <Icon name="menu" size={18} />
         </button>
-        <Link href="/" aria-label="RelayPad home" className="flex shrink-0 items-center gap-2">
+        <Link href="/" aria-label="DotPad home" className="flex shrink-0 items-center gap-2">
           <RelayPadLogo size={26} />
           <span className="hidden text-[15px] font-semibold tracking-tight text-white sm:inline">
-            Relay<span className="text-mint-400">Pad</span>
+            Dot<span className="text-mint-400">Pad</span>
           </span>
         </Link>
         <GlobalSearch />

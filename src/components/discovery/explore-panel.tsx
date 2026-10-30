@@ -29,7 +29,7 @@ const TABS: { key: TabKey; label: string }[] = [
   { key: "trending", label: "Trending" },
   { key: "graduating", label: "Graduating" },
   { key: "graduated", label: "Graduated" },
-  { key: "relaypad", label: "RelayPad Launches" },
+  { key: "relaypad", label: "DotPad Launches" },
 ];
 
 const FILTERS = [
@@ -68,7 +68,7 @@ function SourceBadge({ source, relaypadLaunchId }: { source: string; relaypadLau
     "pumpfun.pool": { label: "PumpSwap", tone: "mint" },
     "launchlab.curve": { label: "LaunchLab", tone: "ice" },
     "raydium.cpmm": { label: "Raydium CPMM", tone: "ice" },
-    relaypad: { label: "RelayPad", tone: "mint" },
+    relaypad: { label: "DotPad", tone: "mint" },
   };
   const m = meta[source] ?? { label: source, tone: "neutral" as const };
   return (
@@ -85,7 +85,7 @@ function SourceBadge({ source, relaypadLaunchId }: { source: string; relaypadLau
         {m.label}
       </span>
       {relaypadLaunchId && (
-        <span className="rounded border border-mint-500/40 bg-mint-500/10 px-1 py-0.5 text-2xs text-mint-300" title="Launched via RelayPad">
+        <span className="rounded border border-mint-500/40 bg-mint-500/10 px-1 py-0.5 text-2xs text-mint-300" title="Launched via DotPad">
           R
         </span>
       )}
@@ -511,10 +511,10 @@ export function ExplorePanel({ initialSearch = "" }: { initialSearch?: string })
       ) : tokens.length === 0 ? (
         tab === "relaypad" ? (
           <div className="flex flex-col items-center gap-2 px-4 py-10 text-center">
-            <p className="text-[13px] text-night-400">No verified RelayPad launches yet.</p>
+            <p className="text-[13px] text-night-400">No verified DotPad launches yet.</p>
             <p className="max-w-sm text-2xs text-night-500">
-              Only tokens whose launch transaction and mint were verified through RelayPad appear here — tokens
-              discovered on Pump.fun or LaunchLab are never attributed to RelayPad.
+              Only tokens whose launch transaction and mint were verified through DotPad appear here — tokens
+              discovered on Pump.fun or LaunchLab are never attributed to DotPad.
             </p>
             <Link
               href="/create"

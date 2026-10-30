@@ -8,7 +8,7 @@ export default function LeaderboardPage() {
       <header className="mb-4">
         <h1 className="text-lg font-semibold tracking-tight text-white">Creator Leaderboard</h1>
         <p className="mt-0.5 text-2xs text-night-500">
-          Computed from RelayPad&apos;s launch registry. Launch counts and on-chain-verified
+          Computed from DotPad&apos;s launch registry. Launch counts and on-chain-verified
           graduations only — no earnings or volume data is implied.
         </p>
       </header>

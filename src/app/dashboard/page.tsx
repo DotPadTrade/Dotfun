@@ -51,11 +51,11 @@ export default function DashboardPage() {
       <div className="animate-fade-up">
         <h1 className="mb-1 text-lg font-semibold tracking-tight text-white">My Tokens</h1>
         <p className="mb-6 text-2xs text-night-500">
-          Launched with your connected wallet — RelayPad attributes by creator address, never by custody.
+          Launched with your connected wallet — DotPad attributes by creator address, never by custody.
         </p>
         <EmptyState
           title="Connect your wallet"
-          description="Your launches appear here once a wallet is connected. RelayPad attributes launches by creator address — never by custody."
+          description="Your launches appear here once a wallet is connected. DotPad attributes launches by creator address — never by custody."
         />
       </div>
     );

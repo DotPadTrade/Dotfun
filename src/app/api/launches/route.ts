@@ -30,7 +30,7 @@ export async function POST(req: Request) {
       {
         error: "database_not_configured",
         message:
-          "RelayPad requires DATABASE_URL (PostgreSQL) to persist launch records. See .env.example.",
+          "DotPad requires DATABASE_URL (PostgreSQL) to persist launch records. See .env.example.",
       },
       { status: 503 },
     );

@@ -56,7 +56,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <Topbar onMenu={() => setDrawerOpen(true)} />
         <main className="mx-auto w-full max-w-[1560px] flex-1 px-3 py-4 sm:px-5">{children}</main>
         <footer className="border-t border-night-700/60 px-4 py-4 text-center text-2xs text-night-500">
-          RelayPad — One Launchpad. Two Routes. Launches involve risk; verify
+          DotPad — One Launchpad. Two Routes. Launches involve risk; verify
           every transaction before signing.
         </footer>
       </div>

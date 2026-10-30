@@ -22,8 +22,8 @@ import {
  *   verification (future on-chain verification step).
  */
 
-export const OFFICIAL_TOKEN_NAME = "RelayPad";
-export const OFFICIAL_TOKEN_SYMBOL = "$RELAY";
+export const OFFICIAL_TOKEN_NAME = "DotPad";
+export const OFFICIAL_TOKEN_SYMBOL = "$DOT";
 
 export type OfficialTokenStatus = "placeholder" | "invalid" | "configured";
 
@@ -78,7 +78,7 @@ export function officialTokenView(
       copyable: false,
       badgeLabel: "INVALID CONFIGURATION",
       message:
-        "RELAY_OFFICIAL_MINT is set but is not a valid Solana address. Fix the configuration to enable the official address display.",
+        "DOTPAD_OFFICIAL_MINT is set but is not a valid Solana address. Fix the configuration to enable the official address display.",
       explorerHref: null,
     };
   }
@@ -93,7 +93,7 @@ export function officialTokenView(
     mint: null,
     copyable: false,
     badgeLabel: "CA NOT OFFICIAL YET",
-    message: "The official $RELAY token has not been announced yet.",
+    message: "The official $DOT token has not been announced yet.",
     explorerHref: null,
   };
 }

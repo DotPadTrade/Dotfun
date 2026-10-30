@@ -21,13 +21,13 @@ export default function DocsPage() {
       <header className="mb-4">
         <h1 className="text-lg font-semibold tracking-tight text-white">Documentation</h1>
         <p className="mt-0.5 text-2xs text-night-500">
-          How RelayPad works, how your keys stay yours, and what is verified on-chain.
+          How DotPad works, how your keys stay yours, and what is verified on-chain.
         </p>
       </header>
 
       <Section id="routes" title="One Launchpad. Two Routes.">
         <p>
-          RelayPad supports two independent Solana launch ecosystems. You choose the route when
+          DotPad supports two independent Solana launch ecosystems. You choose the route when
           creating a token; the choice determines the bonding-curve program, fees, and where the
           token graduates:
         </p>
@@ -37,7 +37,7 @@ export default function DocsPage() {
             <span>
               Created via the official Pump program (Token-2022, 6 decimals) and traded on the
               pump.fun bonding curve. When the curve completes, <strong>pump.fun&apos;s own
-              protocol</strong> migrates liquidity to PumpSwap — RelayPad detects and verifies the
+              protocol</strong> migrates liquidity to PumpSwap — DotPad detects and verifies the
               pool, it never performs the migration.
             </span>
           </li>
@@ -46,7 +46,7 @@ export default function DocsPage() {
             <span>
               Created via Raydium LaunchLab and traded on its bonding curve. After the funding
               threshold is crossed, <strong>Raydium&apos;s migration wallet</strong> graduates the
-              launch into a standard Raydium CPMM pool, which RelayPad then verifies on-chain.
+              launch into a standard Raydium CPMM pool, which DotPad then verifies on-chain.
             </span>
           </li>
         </ul>
@@ -55,7 +55,7 @@ export default function DocsPage() {
 
       <Section id="security" title="Security model">
         <ul className="list-disc space-y-1.5 pl-4">
-          <li><strong>No custody.</strong> RelayPad never holds user keys or signs launches. Every transaction is approved in your wallet.</li>
+          <li><strong>No custody.</strong> DotPad never holds user keys or signs launches. Every transaction is approved in your wallet.</li>
           <li><strong>Vanity mints</strong> are generated in a sandboxed Web Worker and live only in the browser tab&apos;s memory — never sent to a server, never stored.</li>
           <li><strong>Upload credentials</strong> stay on the server; artwork is validated (type, size) before pinning.</li>
           <li><strong>On-chain is the source of truth.</strong> A launch shows as confirmed only when the mint exists on-chain; graduation and pool status come from protocol accounts.</li>
@@ -72,7 +72,7 @@ export default function DocsPage() {
           <code>failed</code> or <code>unresolved</code> with the exact on-chain error.
         </p>
         <p>
-          RelayPad displays only verifiable data. Where market metrics (price, market cap,
+          DotPad displays only verifiable data. Where market metrics (price, market cap,
           volume) have no verified source, the interface shows that they are unavailable rather
           than inventing numbers.
         </p>
@@ -102,7 +102,7 @@ export default function DocsPage() {
           RPC stopped responding. Check the signature on an explorer before retrying — a landed
           transaction must never be re-sent blindly.</p>
         <p><strong>Why is market cap blank?</strong><br />
-          RelayPad only displays metrics it can verify from on-chain or registry data. When a
+          DotPad only displays metrics it can verify from on-chain or registry data. When a
           verified market-data source is not connected, those fields stay empty by design.</p>
         <p><strong>I lost my vanity keypair.</strong><br />
           By design, vanity keys vanish when the tab closes. Generate a new one, or complete the

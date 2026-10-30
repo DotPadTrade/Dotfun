@@ -11,7 +11,7 @@ export function RelayPadLogo({ size = 32, className = "" }: { size?: number; cla
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/relaypad-logo-transparent.png"
-      alt="Relay logo"
+      alt="DotPad logo"
       width={size}
       height={size}
       className={`shrink-0 ${className}`}
@@ -25,7 +25,7 @@ export function RelayPadWordmark({ size = 32 }: { size?: number }) {
     <span className="inline-flex items-center gap-2.5">
       <RelayPadLogo size={size} />
       <span className="text-lg font-semibold tracking-tight text-white">
-        Relay<span className="text-mint-400">Pad</span>
+        Dot<span className="text-mint-400">Pad</span>
       </span>
     </span>
   );

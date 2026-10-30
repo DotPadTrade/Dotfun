@@ -1,3 +1,0 @@
-C:\Users\ramad\.cline\data\workspaces\chat\relaypad\src\lib\adapters\pump.ts:89: creatorFeeConfigurable: Boolean(global.creatorFeeConfigurable),
-C:\Users\ramad\.cline\data\workspaces\chat\relaypad\src\lib\discovery\pumpswap.ts:9: const OFF = { quoteMint: 32, lpMint: 64, baseVault: 96, quoteVault: 128, lpSupply: 160, coinCreator: 168 };
-END 

@@ -168,12 +168,12 @@ export function Sidebar({
       }`}
     >
       <div className={`flex items-center gap-2.5 py-4 ${compact ? "justify-center px-0" : "px-4"}`}>
-        <Link href="/" aria-label="RelayPad home" className="shrink-0">
+        <Link href="/" aria-label="DotPad home" className="shrink-0">
           <RelayPadLogo size={26} />
         </Link>
         {!compact && (
           <Link href="/" className="truncate text-[15px] font-semibold tracking-tight text-white">
-            Relay<span className="text-mint-400">Pad</span>
+            Dot<span className="text-mint-400">Pad</span>
           </Link>
         )}
       </div>
@@ -213,7 +213,7 @@ export function MobileDrawer({
           <span className="flex items-center gap-2.5">
             <RelayPadLogo size={24} />
             <span className="text-[15px] font-semibold text-white">
-              Relay<span className="text-mint-400">Pad</span>
+              Dot<span className="text-mint-400">Pad</span>
             </span>
           </span>
           <button

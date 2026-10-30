@@ -17,7 +17,7 @@ export default async function ExplorePage({
         </h1>
         <p className="mt-0.5 text-2xs text-night-500">
           Live discovery across Pump.fun curves &amp; PumpSwap pools, Raydium LaunchLab &amp;
-          CPMM, and verified RelayPad launches. Metrics shown only when verified —
+          CPMM, and verified DotPad launches. Metrics shown only when verified —
           otherwise N/A.
         </p>
       </header>

@@ -232,7 +232,7 @@ export default async function TokenDetailPage({
             ) : (
               <p className="mt-2 text-xs text-night-500">
                 {launch.route === "PUMP_PUMPSWAP"
-                  ? "PumpSwap pool appears here once pump.fun's protocol completes migration and RelayPad verifies it on-chain."
+                  ? "PumpSwap pool appears here once pump.fun's protocol completes migration and DotPad verifies it on-chain."
                   : "Raydium CPMM pool address appears here once the LaunchLab migration completes and the pool is verified on-chain."}
               </p>
             )}

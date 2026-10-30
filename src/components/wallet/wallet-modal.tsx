@@ -113,7 +113,7 @@ export function WalletModal() {
           ))}
         </ul>
         <p className="mt-4 text-xs text-night-500">
-          RelayPad never asks for seed phrases or private keys. You approve every
+          DotPad never asks for seed phrases or private keys. You approve every
           transaction in your own wallet.
         </p>
       </div>

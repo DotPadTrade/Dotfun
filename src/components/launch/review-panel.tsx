@@ -72,7 +72,7 @@ export function ReviewPanel({
       )}
       <p className="text-xs text-night-500">
         Only the transactions shown above are submitted, and only after you
-        approve them in your wallet. RelayPad holds no keys and cannot move
+        approve them in your wallet. DotPad holds no keys and cannot move
         funds without your signature.
       </p>
     </Card>

@@ -26,19 +26,19 @@ const metadataOrigin = process.env.VERCEL_PROJECT_PRODUCTION_URL
 export const metadata: Metadata = {
   metadataBase: new URL(metadataOrigin),
   title: {
-    default: "RelayPad — One Launchpad. Two Routes.",
-    template: "%s | RelayPad",
+    default: "DotPad — One Launchpad. Two Routes.",
+    template: "%s | DotPad",
   },
   description:
-    "RelayPad is a Solana token launchpad with two routes: Pump.fun bonding curve to PumpSwap, or Raydium LaunchLab bonding curve to a Raydium CPMM pool.",
-  applicationName: "RelayPad",
+    "DotPad is a Solana token launchpad with two routes: Pump.fun bonding curve to PumpSwap, or Raydium LaunchLab bonding curve to a Raydium CPMM pool.",
+  applicationName: "DotPad",
   openGraph: {
-    title: "RelayPad — One Launchpad. Two Routes.",
+    title: "DotPad — One Launchpad. Two Routes.",
     description:
       "Launch tokens on Solana via Pump.fun → PumpSwap or Raydium LaunchLab → CPMM. Choose your route.",
-    siteName: "RelayPad",
+    siteName: "DotPad",
     type: "website",
-    images: [{ url: "/relaypad-banner.jpg", width: 2048, height: 682, alt: "RelayPad" }],
+    images: [{ url: "/relaypad-banner.jpg", width: 2048, height: 682, alt: "DotPad" }],
   },
 };
 

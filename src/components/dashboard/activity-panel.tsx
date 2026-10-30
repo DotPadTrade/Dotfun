@@ -96,7 +96,7 @@ export function ActivityPanel({ full = false }: { full?: boolean }) {
       ) : events.length === 0 ? (
         <PanelEmpty
           message="No launch activity recorded yet."
-          hint="Events appear when creators prepare, submit, and confirm launches through RelayPad."
+          hint="Events appear when creators prepare, submit, and confirm launches through DotPad."
         />
       ) : (
         <ul>

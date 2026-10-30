@@ -235,13 +235,13 @@ export default function TreasuryDashboard() {
         icon: "wallet",
       },
       {
-        label: "$RELAY purchased",
+        label: "$DOT purchased",
         value: t?.relayPurchased != null ? formatToken(t.relayPurchased, null) : "—",
         sub: "verified swap output",
         icon: "trending",
       },
       {
-        label: "$RELAY burned",
+        label: "$DOT burned",
         value: t?.relayBurned != null ? formatToken(t.relayBurned, null) : "—",
         sub: "verified SPL burns",
         icon: "zap",
@@ -258,7 +258,7 @@ export default function TreasuryDashboard() {
             Treasury configuration pending
           </div>
           <p className="mt-1">
-            The official $RELAY token has not been launched yet and no treasury wallet
+            The official $DOT token has not been launched yet and no treasury wallet
             addresses are configured. All metrics below display explicit unavailable
             states until real, verified addresses exist — no data is invented.
           </p>
@@ -337,7 +337,7 @@ export default function TreasuryDashboard() {
                   <th className="px-3 py-2 font-medium">Role</th>
                   <th className="px-3 py-2 font-medium">Public address</th>
                   <th className="px-3 py-2 text-right font-medium">SOL</th>
-                  <th className="px-3 py-2 text-right font-medium">$RELAY</th>
+                  <th className="px-3 py-2 text-right font-medium">$DOT</th>
                   <th className="px-3 py-2 font-medium">Explorer</th>
                 </tr>
               </thead>
@@ -463,7 +463,7 @@ export default function TreasuryDashboard() {
       <p className="text-2xs text-night-500">
         Read-only dashboard. Every metric is derived from verified on-chain transactions or live
         RPC balance reads; unconfigured wallets and tokens display placeholder states until the
-        official $RELAY launch. No transfers can be initiated from this page.
+        official $DOT launch. No transfers can be initiated from this page.
       </p>
     </div>
   );

@@ -17,7 +17,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Treasury",
   description:
-    "Public, verifiable treasury overview for RelayPad's official $RELAY token: creator fees collected, allocations, buybacks, burns, and on-chain activity.",
+    "Public, verifiable treasury overview for DotPad's official $DOT token: creator fees collected, allocations, buybacks, burns, and on-chain activity.",
 };
 
 export default function TreasuryPage() {
@@ -27,7 +27,7 @@ export default function TreasuryPage() {
       <header className="mb-4">
         <h1 className="text-lg font-semibold tracking-tight text-white">Treasury</h1>
         <p className="mt-0.5 text-2xs text-night-500">
-          Public, read-only overview of the official $RELAY treasury — verified on-chain
+          Public, read-only overview of the official $DOT treasury — verified on-chain
           activity only. Nothing on this page can initiate transfers.
         </p>
       </header>
