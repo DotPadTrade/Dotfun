@@ -30,6 +30,12 @@ Variables that are not RelayPad-branded and therefore stay unchanged:
   `DOTPAD_OFFICIAL_MINT`. Because that variable is not set yet anywhere, the
   official $DOT dashboard renders its honest "CA NOT OFFICIAL YET /
   configuration needed" states and copying stays disabled.
+- The schema bootstrap runs **lazily on first database use** (single-flight per
+  process, from `getDb()`); there is no startup hook — the instrumentation
+  entry was removed because Next's dev bundling cannot resolve Node builtins
+  from it (edge-runtime instrumentation variant), which broke `next dev`.
+  Production behavior is unchanged: the bootstrap check is a single
+  `sqlite_master` query per process start.
 - The legacy `RELAY_OFFICIAL_MINT` value is intentionally **not** reused as the
   $DOT mint: displaying the old $RELAY mint under a $DOT label would misrepresent
   the token identity. The placeholder constant

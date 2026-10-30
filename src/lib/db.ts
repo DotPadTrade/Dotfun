@@ -1,7 +1,10 @@
-import { PrismaClient, Prisma } from "@prisma/client";
-import { createHash } from "node:crypto";
-import fs from "node:fs";
-import path from "node:path";
+import { PrismaClient } from "@prisma/client";
+// Bare builtin imports (not "node:*"): Next dev bundling in this project fails
+// on "node:" scheme imports inside the server module graph (UnhandledSchemeError),
+// while the equivalent bare builtins resolve fine in both dev and production builds.
+import { createHash } from "crypto";
+import fs from "fs";
+import path from "path";
 
 /**
  * Lazily-created Prisma client. Returns null when DATABASE_URL is absent so

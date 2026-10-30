@@ -138,7 +138,7 @@ function renderCard(
           </span>
           <div className="min-w-0">
             <h2 className="text-base font-semibold tracking-tight text-white">
-              Official $RELAY Token
+              Official $DOT Token
               <span className="ml-2 text-2xs font-normal uppercase tracking-wider text-night-500">
                 DotPad
               </span>
