@@ -1,0 +1,65 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#0b0d12;
+    font-family:"Segoe UI",sans-serif; }
+  /* warmer aurora: mint core with soft ice + warm rim */
+  .aur { position:absolute; width:1100px; height:1100px; left:-260px; top:-260px; border-radius:50%;
+    background:radial-gradient(circle,rgba(46,178,70,.16) 0%,rgba(46,178,70,.05) 40%,transparent 65%); }
+  .aur2 { position:absolute; width:900px; height:900px; right:-240px; bottom:-300px; border-radius:50%;
+    background:radial-gradient(circle,rgba(116,192,252,.13) 0%,transparent 60%); }
+  .aur3 { position:absolute; width:700px; height:700px; right:220px; top:-320px; border-radius:50%;
+    background:radial-gradient(circle,rgba(232,190,120,.07) 0%,transparent 60%); }
+  .kicker { position:absolute; left:96px; top:88px; color:#8ae8a0; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; left:96px; top:128px; color:#fff; font-size:76px; font-weight:800;
+    letter-spacing:-0.02em; }
+  h1 span { color:#8ae8a0; }
+  .sub { position:absolute; left:96px; top:242px; color:#7a8494; font-size:23px; max-width:580px;
+    line-height:1.6; }
+  .sub b { color:#dbe3ee; font-weight:600; }
+  /* identity card taking shape */
+  .idcard { position:absolute; right:110px; top:262px; width:520px; border-radius:24px;
+    background:linear-gradient(160deg,rgba(21,25,32,.94),rgba(12,14,18,.94));
+    border:1px solid rgba(85,210,108,.35); padding:36px 40px; box-shadow:0 40px 90px rgba(0,0,0,.55); }
+  .avatar { width:104px; height:104px; border-radius:50%; position:relative;
+    background:linear-gradient(135deg,#176b2a,#2eb246 60%,#55d26c); }
+  .avatar::after { content:""; position:absolute; inset:-10px; border-radius:50%;
+    border:2px dashed rgba(138,232,160,.7); border-right-color:transparent; transform:rotate(-24deg); }
+  .idcard .name { margin-top:24px; color:#fff; font-size:34px; font-weight:700; }
+  .idcard .name em { font-style:normal; color:#5c646f; }
+  .chip { display:inline-block; margin-top:12px; font-family:Consolas,monospace; color:#8ae8a0;
+    border:1px solid rgba(85,210,108,.5); border-radius:8px; padding:6px 12px; font-size:17px; }
+  .meta-row { display:flex; gap:12px; margin-top:22px; }
+  .pill { flex:1; height:44px; border-radius:10px; background:rgba(255,255,255,.045);
+    border:1px solid #1e232b; }
+  .pill.half { flex:.45; }
+  .desc { margin-top:18px; height:12px; border-radius:6px;
+    background:linear-gradient(90deg,#1e232b 70%,transparent); }
+  .desc2 { margin-top:10px; height:12px; width:60%; border-radius:6px;
+    background:linear-gradient(90deg,#1e232b 80%,transparent); }
+  /* creative sparkle */
+  .spark { position:absolute; color:#8ae8a0; font-weight:300; }
+  .foot { position:absolute; left:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; right:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="aur"></div><div class="aur2"></div><div class="aur3"></div>
+  <div class="kicker">THE CREATOR EXPERIENCE</div>
+  <h1>Made for the person <span>launching.</span></h1>
+  <div class="sub">Pick a route, see the fees before you sign, shape your token's identity —
+  even its address — and follow every lifecycle state as it's <b>verified on-chain</b>.</div>
+  <div class="idcard">
+    <div class="avatar"></div>
+    <div class="name">Your token <em>— taking shape</em></div>
+    <div class="chip">ticker: yours · mint: RLY…</div>
+    <div class="meta-row"><div class="pill"></div><div class="pill half"></div></div>
+    <div class="desc"></div><div class="desc2"></div>
+  </div>
+  <div class="spark" style="right:120px;top:150px;font-size:44px">＋</div>
+  <div class="spark" style="right:600px;top:170px;font-size:26px;opacity:.7">✦</div>
+  <div class="spark" style="right:90px;top:640px;font-size:30px;opacity:.6">✦</div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">17 / 18</div>
+</body></html>

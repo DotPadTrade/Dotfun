@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  .kicker { position:absolute; left:96px; top:88px; color:#55d26c; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; left:96px; top:126px; color:#fff; font-size:76px; font-weight:800;
+    letter-spacing:-0.02em; }
+  h1 span { color:#8ae8a0; }
+  .sub { position:absolute; left:96px; top:238px; color:#5c646f; font-size:23px; max-width:560px;
+    line-height:1.55; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  .note { position:absolute; left:96px; top:368px; font-family:Consolas,monospace; font-size:17px;
+    color:#3e4650; }
+  .foot { position:absolute; left:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; right:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="kicker">UNDER THE HOOD</div>
+  <h1>No mystery stack.</h1>
+  <div class="sub">Official SDKs, pinned versions, strict TypeScript — the same stack you'd
+  choose, wired for <b>two launch routes</b>.</div>
+  <div class="note">versions as pinned in package.json</div>
+  <svg width="860" height="880" viewBox="0 0 860 880" style="position:absolute;right:60px;top:10px">
+    <defs>
+      <linearGradient id="slab" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#151920"/><stop offset="1" stop-color="#0c0e12"/></linearGradient>
+    </defs>
+    <!-- isometric slabs: parallelogram plates with mono labels -->
+    <g font-family="Consolas,monospace" font-size="19" text-anchor="middle">
+      <g>
+        <polygon points="170,40 690,40 610,100 90,100" fill="url(#slab)" stroke="#2eb246" stroke-opacity=".7" stroke-width="1.5"/>
+        <text x="390" y="78" fill="#8ae8a0">app · next.js 15 · react 19 · ts strict</text>
+      </g>
+      <g>
+        <polygon points="190,158 710,158 630,218 110,218" fill="url(#slab)" stroke="#55d26c" stroke-opacity=".45"/>
+        <text x="410" y="196" fill="#8ae8a0">ui · tailwind · dark brand system</text>
+      </g>
+      <g>
+        <polygon points="210,276 730,276 650,336 130,336" fill="url(#slab)" stroke="#74c0fc" stroke-opacity=".55"/>
+        <text x="430" y="314" fill="#a5d8ff">wallet · adapter · phantom · solflare</text>
+      </g>
+      <g>
+        <polygon points="230,394 750,394 670,454 150,454" fill="url(#slab)" stroke="#74c0fc" stroke-opacity=".55"/>
+        <text x="450" y="432" fill="#a5d8ff">routes · pump-sdk 4.0.0 · raydium-sdk-v2</text>
+      </g>
+      <g>
+        <polygon points="250,512 770,512 690,572 170,572" fill="url(#slab)" stroke="#a5d8ff" stroke-opacity=".4"/>
+        <text x="470" y="550" fill="#a5d8ff">solana · web3.js 1.98 · spl-token</text>
+      </g>
+      <g>
+        <polygon points="270,630 790,630 710,690 190,690" fill="url(#slab)" stroke="#5c646f" stroke-opacity=".5"/>
+        <text x="490" y="668" fill="#c9d2de">data · postgres · prisma · ipfs pinning</text>
+      </g>
+      <g>
+        <polygon points="290,748 810,748 730,808 210,808" fill="url(#slab)" stroke="#5c646f" stroke-opacity=".4"/>
+        <text x="510" y="786" fill="#5c646f">tests · vitest</text>
+      </g>
+      <!-- vertical connector spine -->
+      <line x1="430" y1="50" x2="510" y2="800" stroke="#1e232b" stroke-width="2" stroke-dasharray="4 8"/>
+    </g>
+  </svg>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">11 / 18</div>
+</body></html>

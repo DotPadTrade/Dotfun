@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",-apple-system,sans-serif; }
+  .grid { position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+    background-size:80px 80px; }
+  .glow { position:absolute; width:900px; height:900px; right:-260px; top:-180px; border-radius:50%;
+    background:radial-gradient(circle,rgba(46,178,70,.10) 0%,transparent 62%); }
+  /* giant watermark mark, bleeding off the right edge */
+  .mark { position:absolute; right:-120px; top:50%; transform:translateY(-50%); width:760px; opacity:.92; }
+  .kicker { position:absolute; left:96px; top:92px; display:flex; align-items:center; gap:12px;
+    color:#55d26c; font-size:20px; font-weight:600; letter-spacing:.42em; text-transform:uppercase; }
+  .kicker .dot { width:10px; height:10px; border-radius:50%; background:#2eb246;
+    box-shadow:0 0 14px rgba(46,178,70,.8); }
+  .rule { position:absolute; left:96px; top:150px; width:64px; height:3px; background:#2eb246; }
+  h1 { position:absolute; left:96px; top:270px; color:#fff; font-weight:800;
+    font-size:132px; line-height:1.04; letter-spacing:-0.02em; }
+  h1 .m { color:#55d26c; }
+  .sub { position:absolute; left:96px; top:640px; color:#5c646f; font-size:27px; font-weight:400;
+    max-width:760px; line-height:1.5; }
+  .sub b { color:#a5d8ff; font-weight:600; }
+  .brand { position:absolute; left:96px; bottom:64px; display:flex; align-items:center; gap:16px; }
+  .brand img { height:56px; }
+  .brand span { color:#fff; font-size:30px; font-weight:700; letter-spacing:-0.01em; }
+  .brand span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; right:96px; bottom:70px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="grid"></div><div class="glow"></div>
+  <img class="mark" src="../../../public/relaypad-logo-transparent.png" alt="">
+  <div class="kicker"><span class="dot"></span>Solana launchpad</div>
+  <div class="rule"></div>
+  <h1>One Launchpad.<br><span class="m">Two Routes.</span></h1>
+  <div class="sub">Pump.fun and Raydium LaunchLab in a single interface — with the whole
+  launch lifecycle tracked <b>on-chain</b>.</div>
+  <div class="brand"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">01 / 18</div>
+</body></html>

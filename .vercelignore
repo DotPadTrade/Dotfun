@@ -1,0 +1,16 @@
+# Source-only deployment: exclude everything that is not application source.
+# NOTE: a .vercelignore file replaces the CLI's default ignore behavior, so
+# build outputs and dependencies must be listed explicitly here.
+node_modules
+.next
+.vercel
+artifacts
+docs
+.git
+# Never deploy local-only configuration or the local SQLite database file.
+# Runtime environment variables are configured in the Vercel dashboard/CLI.
+.env
+.env.local
+.env*.local
+prisma/dev.db
+*.db

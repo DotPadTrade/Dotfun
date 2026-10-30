@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  /* one precise mint line draws the verification mark */
+  svg .tick { stroke:#2eb246; stroke-width:10; fill:none; stroke-linecap:round; stroke-linejoin:round;
+    filter:drop-shadow(0 0 22px rgba(46,178,70,.45)); }
+  .kicker { position:absolute; left:96px; top:96px; color:#55d26c; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; left:96px; top:140px; color:#fff; font-size:72px; font-weight:800;
+    letter-spacing:-0.02em; line-height:1.12; }
+  h1 span { color:#5c646f; }
+  .ann { position:absolute; font-family:Consolas,monospace; font-size:18px; color:#5c646f; }
+  .ann::before { content:"— "; color:#2eb246; }
+  .stamp { position:absolute; right:130px; top:120px; width:150px; height:150px; border-radius:50%;
+    border:2px solid rgba(85,210,108,.65); display:flex; align-items:center; justify-content:center;
+    transform:rotate(8deg); }
+  .stamp span { color:#8ae8a0; font-family:Consolas,monospace; font-size:16px; letter-spacing:.22em;
+    text-align:center; line-height:1.7; }
+  .foot { position:absolute; left:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; right:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <svg width="900" height="700" viewBox="0 0 900 700" style="position:absolute;right:110px;top:150px">
+    <path class="tick" d="M60 400 L 320 620 L 830 80"/>
+  </svg>
+  <div class="stamp"><span>CHAIN<br>=<br>TRUTH</span></div>
+  <div class="kicker">SECURITY, ENGINEERED</div>
+  <h1>Much of security is<br><span>what you refuse to do.</span></h1>
+  <div class="ann" style="left:96px;top:430px">the server never signs your transactions</div>
+  <div class="ann" style="left:96px;top:470px">vanity keys never leave page memory</div>
+  <div class="ann" style="left:96px;top:510px">a submitted signature resolves before any retry</div>
+  <div class="ann" style="left:96px;top:550px">no audit badge claimed — verifiable behavior instead</div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">15 / 18</div>
+</body></html>

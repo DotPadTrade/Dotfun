@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  .kicker { position:absolute; right:96px; top:110px; color:#8ae8a0; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; right:96px; top:150px; color:#fff; font-size:88px; font-weight:800;
+    letter-spacing:-0.02em; text-align:right; }
+  h1 span { color:#55d26c; }
+  .sub { position:absolute; right:96px; top:290px; color:#5c646f; font-size:23px; width:600px;
+    text-align:right; line-height:1.55; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  .status { position:absolute; right:96px; top:492px; display:inline-flex; align-items:center; gap:12px;
+    border:1px dashed rgba(85,210,108,.6); border-radius:999px; padding:12px 26px;
+    color:#8ae8a0; font-family:Consolas,monospace; font-size:18px; }
+  /* token concept: halo ring + monogram, left side */
+  .halo { position:absolute; left:170px; top:210px; width:480px; height:480px; }
+  .coin { position:absolute; left:255px; top:295px; width:210px; height:210px; border-radius:50%;
+    border:3px solid #2eb246; background:radial-gradient(circle at 32% 28%,rgba(85,210,108,.25),rgba(8,9,12,.2) 70%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 90px rgba(46,178,70,.25), inset 0 0 40px rgba(46,178,70,.15); }
+  .coin span { color:#8ae8a0; font-size:56px; font-weight:800; letter-spacing:-0.02em; }
+  .sat { position:absolute; border-radius:50%; background:#55d26c; box-shadow:0 0 14px rgba(85,210,108,.8); }
+  .cap { position:absolute; left:0; right:0; top:760px; text-align:center; color:#3e4650;
+    font-family:Consolas,monospace; font-size:17px; }
+  .foot { position:absolute; right:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+</style></head><body>
+  <!-- halo rings -->
+  <svg class="halo" width="480" height="480" viewBox="0 0 480 480">
+    <circle cx="240" cy="240" r="228" stroke="#1f8f36" stroke-opacity=".35" fill="none" stroke-width="1.5" stroke-dasharray="2 10"/>
+    <circle cx="240" cy="240" r="176" stroke="#2eb246" stroke-opacity=".5" fill="none" stroke-width="1.5"/>
+    <circle cx="240" cy="240" r="120" stroke="#55d26c" stroke-opacity=".6" fill="none" stroke-width="1.5"/>
+    <circle cx="240" cy="12" r="7" fill="#55d26c"/>
+    <circle cx="416" cy="330" r="5" fill="#8ae8a0"/>
+  </svg>
+  <div class="coin"><span>$R</span></div>
+  <div class="cap">conceptual mark — no official artwork exists yet</div>
+  <div class="kicker">WHY $RELAY?</div>
+  <h1>The token is <span>the honesty test.</span></h1>
+  <div class="sub">Straight answer: <b>no official $RELAY exists yet</b> — no mint, no address, nothing to buy.
+  The vision is a token launched <b>through RelayPad itself</b>, feeding a treasury the whole world can audit.</div>
+  <div class="status">◌ PROPOSED · NOT YET LAUNCHED</div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+</body></html>

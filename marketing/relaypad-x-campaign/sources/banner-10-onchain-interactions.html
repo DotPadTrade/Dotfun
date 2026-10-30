@@ -1,0 +1,68 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#0a0c11;
+    font-family:"Segoe UI",sans-serif; }
+  .kicker { position:absolute; left:96px; top:88px; color:#a5d8ff; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; left:96px; top:126px; color:#fff; font-size:74px; font-weight:800;
+    letter-spacing:-0.02em; line-height:1.1; }
+  h1 span { color:#74c0fc; }
+  .sub { position:absolute; left:96px; top:360px; color:#5c646f; font-size:23px; max-width:600px; line-height:1.55; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  /* three stations on a horizontal line */
+  .lane { position:absolute; left:120px; top:560px; width:1360px; height:2px;
+    background:linear-gradient(90deg,#1c7ed6,#74c0fc,#2eb246); }
+  .lane::after { content:""; position:absolute; right:-6px; top:-7px;
+    border:8px solid transparent; border-left:14px solid #2eb246; }
+  .st { position:absolute; top:400px; width:360px; text-align:center; }
+  .box { width:150px; height:150px; margin:0 auto; border-radius:22px; position:relative;
+    display:flex; align-items:center; justify-content:center; }
+  .st .t { color:#fff; font-size:26px; font-weight:700; margin-top:26px; }
+  .st .d { color:#5c646f; font-size:18px; margin-top:8px; line-height:1.45; }
+  .st1 .box { border:1px solid rgba(116,192,252,.55); background:rgba(28,126,214,.10); }
+  .st2 .box { border:1px solid rgba(165,216,255,.5); background:rgba(59,158,255,.08); }
+  .st3 .box { border:1px solid rgba(85,210,108,.55); background:rgba(46,178,70,.10); }
+  /* wallet glyph */
+  .wallet { width:64px; height:48px; border-radius:10px; background:#74c0fc; position:relative; }
+  .wallet::after { content:""; position:absolute; right:-14px; top:12px; width:22px; height:22px;
+    border-radius:6px; background:#0a0c11; border:4px solid #74c0fc; }
+  /* signed tx glyph: envelope + sig line */
+  .tx { width:64px; height:44px; border:3px solid #a5d8ff; border-radius:8px; position:relative; }
+  .tx::before { content:"✓"; position:absolute; right:-14px; bottom:-16px; color:#a5d8ff;
+    font-size:30px; font-weight:800; }
+  .tx::after { content:""; position:absolute; left:10px; right:26px; top:30px; height:4px;
+    border-radius:2px; background:#a5d8ff; }
+  /* chain glyph: stacked layers */
+  .chain { position:relative; width:70px; height:60px; }
+  .chain i { position:absolute; width:70px; height:18px; border-radius:5px; background:#2eb246; }
+  .chain i:nth-child(1){ top:0; opacity:.35 } .chain i:nth-child(2){ top:21px; opacity:.65 }
+  .chain i:nth-child(3){ top:42px }
+  .tag { position:absolute; top:536px; font-family:Consolas,monospace; font-size:17px; color:#3e4650; }
+  .foot { position:absolute; left:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; right:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="kicker">BUILT FOR ON-CHAIN INTERACTIONS</div>
+  <h1>Your keys. Your signature.<br><span>The chain decides.</span></h1>
+  <div class="sub">Connect <b>Phantom</b> or <b>Solflare</b>, review fees and details before signing,
+  and verify everything against the cluster. <b>RelayPad never takes custody.</b></div>
+  <div class="lane"></div>
+  <div class="st st1" style="left:150px">
+    <div class="box"><div class="wallet"></div></div>
+    <div class="t">Wallet</div><div class="d">Connect and review. Only your wallet can sign.</div>
+  </div>
+  <div class="st st2" style="left:620px">
+    <div class="box"><div class="tx"></div></div>
+    <div class="t">Transaction</div><div class="d">Route-specific, fee-transparent, resolved before any retry.</div>
+  </div>
+  <div class="st st3" style="left:1090px">
+    <div class="box"><div class="chain"><i></i><i></i><i></i></div></div>
+    <div class="t">Solana</div><div class="d">Confirmed only when the mint account exists on-chain.</div>
+  </div>
+  <div class="tag" style="left:560px">signs →</div>
+  <div class="tag" style="left:1030px">submits →</div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">10 / 18</div>
+</body></html>

@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  /* vertical split: mint half (Route A) / ice half (Route B), center spine */
+  .half { position:absolute; top:0; bottom:0; width:760px; }
+  .half.left { left:0;
+    background:linear-gradient(160deg,rgba(46,178,70,.16) 0%,rgba(8,9,12,0) 55%),
+               linear-gradient(0deg,rgba(23,107,42,.25) 0%,rgba(8,9,12,0) 40%); }
+  .half.right { right:0;
+    background:linear-gradient(200deg,rgba(28,126,214,.18) 0%,rgba(8,9,12,0) 55%),
+               linear-gradient(0deg,rgba(59,158,255,.14) 0%,rgba(8,9,12,0) 40%); }
+  .spine { position:absolute; left:759px; top:0; bottom:0; width:2px;
+    background:linear-gradient(#2eb246,#ffffff22,#3b9eff); }
+  /* diagonal hatching, mirrored directions per half */
+  .hatch-l { position:absolute; left:0; top:0; bottom:0; width:420px; opacity:.5;
+    background:repeating-linear-gradient(55deg,transparent 0 26px,rgba(85,210,108,.10) 26px 28px); }
+  .hatch-r { position:absolute; right:0; top:0; bottom:0; width:420px; opacity:.5;
+    background:repeating-linear-gradient(-55deg,transparent 0 26px,rgba(116,192,252,.10) 26px 28px); }
+  /* converging chevrons pointing at the center spine */
+  .chev { position:absolute; width:150px; height:150px; border-style:solid; border-width:0 0 10px 10px; }
+  .chev.a { left:430px; top:170px; border-color:#2eb246; transform:rotate(-45deg) skew(8deg,8deg); }
+  .chev.b { right:430px; top:170px; border-color:#3b9eff; transform:rotate(45deg) skew(-8deg,8deg); border-width:0 10px 10px 0; }
+  .routebox { position:absolute; top:120px; padding:22px 30px; border-radius:14px; font-weight:700; }
+  .routebox small { display:block; font-weight:600; font-size:17px; letter-spacing:.3em; color:#5c646f; margin-bottom:8px; }
+  .routebox.a { left:96px; border:1px solid rgba(85,210,108,.5); color:#8ae8a0; }
+  .routebox.b { right:96px; border:1px solid rgba(116,192,252,.5); color:#a5d8ff; }
+  .routebox .line { font-size:34px; }
+  /* center emblem */
+  .emblem { position:absolute; left:50%; top:178px; transform:translateX(-50%); text-align:center; }
+  .emblem img { width:128px; filter:drop-shadow(0 0 26px rgba(46,178,70,.35)); }
+  /* headline plate across the spine */
+  .plate { position:absolute; left:50%; top:480px; transform:translateX(-50%);
+    background:#0c0e12; border:1px solid #1e232b; border-radius:20px; padding:44px 72px; text-align:center;
+    box-shadow:0 30px 80px rgba(0,0,0,.55); }
+  .plate h1 { color:#fff; font-size:76px; font-weight:800; letter-spacing:-0.02em; white-space:nowrap; }
+  .plate h1 .m { color:#55d26c; } .plate h1 .i { color:#74c0fc; }
+  .plate p { margin-top:14px; color:#5c646f; font-size:24px; }
+  .plate p b { color:#c9d2de; font-weight:600; }
+  .idx { position:absolute; right:48px; bottom:40px; color:#3e4650; font-family:Consolas,monospace; font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="half left"></div><div class="half right"></div>
+  <div class="hatch-l"></div><div class="hatch-r"></div>
+  <div class="spine"></div>
+  <div class="routebox a"><small>ROUTE A</small><span class="line">Pump.fun → PumpSwap</span></div>
+  <div class="routebox b"><small>ROUTE B</small><span class="line">LaunchLab → CPMM</span></div>
+  <div class="chev a"></div><div class="chev b"></div>
+  <div class="emblem"><img src="../../../public/relaypad-logo-transparent.png" alt=""></div>
+  <div class="plate">
+    <h1>Two ecosystems. <span class="m">One</span> <span class="i">product.</span></h1>
+    <p>You pick the route — <b>RelayPad builds the right transaction</b> and tracks the outcome.</p>
+  </div>
+  <div class="idx">02 / 18</div>
+</body></html>

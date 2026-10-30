@@ -1,0 +1,69 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#0a0c11;
+    font-family:"Segoe UI",sans-serif; }
+  /* editorial collage of abstract discovery cards */
+  .card { position:absolute; background:#101318; border:1px solid #1e232b; border-radius:14px;
+    box-shadow:0 20px 50px rgba(0,0,0,.45); padding:18px 20px; }
+  .row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .av { width:34px; height:34px; border-radius:50%; background:#1e232b; }
+  .av.mint { background:linear-gradient(135deg,#176b2a,#2eb246); }
+  .av.ice { background:linear-gradient(135deg,#1c7ed6,#74c0fc); }
+  .ln { height:9px; border-radius:4px; background:#1e232b; }
+  .ln.short { width:70px; } .ln.med { width:120px; } .ln.long { width:170px; }
+  .num { margin-left:auto; font-family:Consolas,monospace; font-size:16px; }
+  .num.up { color:#22c55e; } .num.dn { color:#ef4444; }
+  .bar { height:6px; border-radius:3px; background:#1e232b; margin-top:8px; overflow:hidden; }
+  .bar i { display:block; height:100%; border-radius:3px; }
+  .card.focus { border-color:rgba(85,210,108,.7); box-shadow:0 0 0 1px rgba(85,210,108,.35), 0 30px 70px rgba(0,0,0,.6); }
+  .tag { position:absolute; font-family:Consolas,monospace; font-size:17px; color:#8ae8a0; }
+  /* headline overlapping the collage */
+  .kicker { position:absolute; left:96px; top:84px; color:#55d26c; font-size:19px; font-weight:600; letter-spacing:.4em; }
+  h1 { position:absolute; left:96px; top:126px; color:#fff; font-size:88px; font-weight:800;
+    letter-spacing:-0.02em; z-index:5; line-height:1.05; }
+  h1 span { color:#8ae8a0; }
+  .sub { position:absolute; left:96px; top:388px; color:#5c646f; font-size:23px; max-width:620px;
+    line-height:1.5; z-index:5; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  .foot { position:absolute; left:96px; bottom:48px; z-index:5; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; right:96px; bottom:48px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <!-- collage, right 2/3, slightly rotated overlapping cards -->
+  <div class="card" style="left:760px;top:70px;width:330px;transform:rotate(-2deg)">
+    <div class="row"><div class="av"></div><div class="ln short"></div><div class="num up">▲</div></div>
+    <div class="ln med"></div><div class="bar"><i style="width:62%;background:#2eb246"></i></div></div>
+  <div class="card" style="left:1120px;top:130px;width:330px;transform:rotate(1.6deg)">
+    <div class="row"><div class="av ice"></div><div class="ln short"></div><div class="num dn">▼</div></div>
+    <div class="ln med"></div><div class="bar"><i style="width:38%;background:#3b9eff"></i></div></div>
+  <div class="card" style="left:930px;top:250px;width:360px;transform:rotate(-1deg)">
+    <div class="row"><div class="av mint"></div><div class="ln med"></div><div class="num up">▲</div></div>
+    <div class="ln long"></div><div class="bar"><i style="width:81%;background:#2eb246"></i></div></div>
+  <div class="card" style="left:1300px;top:330px;width:300px;transform:rotate(2.4deg)">
+    <div class="row"><div class="av"></div><div class="ln short"></div><div class="num up">▲</div></div>
+    <div class="ln med"></div><div class="bar"><i style="width:24%;background:#5c646f"></i></div></div>
+  <div class="card focus" style="left:1020px;top:470px;width:380px;transform:rotate(-1.4deg)">
+    <div class="row"><div class="av mint"></div><div class="ln med"></div><div class="num up">▲</div></div>
+    <div class="ln long"></div><div class="bar"><i style="width:70%;background:#55d26c"></i></div>
+    <div class="row" style="margin:10px 0 0"><div class="ln short"></div><div class="num" style="color:#5c646f">source · fresh</div></div></div>
+  <div class="card" style="left:1440px;top:560px;width:260px;transform:rotate(2deg)">
+    <div class="row"><div class="av ice"></div><div class="ln short"></div></div>
+    <div class="ln med"></div></div>
+  <!-- category chips floating over collage -->
+  <div class="card" style="left:780px;top:640px;width:200px;padding:12px 16px;transform:rotate(-1deg);border-color:rgba(85,210,108,.5)">
+    <div style="color:#8ae8a0;font-family:Consolas,monospace;font-size:17px">movers</div></div>
+  <div class="card" style="left:1000px;top:680px;width:260px;padding:12px 16px;transform:rotate(1.2deg)">
+    <div style="color:#a5d8ff;font-family:Consolas,monospace;font-size:17px">new launches</div></div>
+  <div class="card" style="left:1280px;top:700px;width:240px;padding:12px 16px;transform:rotate(-.8deg)">
+    <div style="color:#a5d8ff;font-family:Consolas,monospace;font-size:17px">new pools</div></div>
+  <div class="tag" style="left:1470px;top:74px;border:1px solid #1e232b;border-radius:8px;padding:4px 12px;color:#5c646f">Pump.fun</div>
+  <div class="tag" style="left:1470px;top:114px;border:1px solid #1e232b;border-radius:8px;padding:4px 12px;color:#5c646f">LaunchLab</div>
+  <div class="kicker">THE DISCOVERY ENGINE</div>
+  <h1>See everything.<br><span>Trust the source.</span></h1>
+  <div class="sub">Seven tabs — All, Movers, New Launches, New Pools, Pump.fun, LaunchLab and
+  RelayPad launches. <b>Every row shows its data source and freshness.</b> Stale rows get flagged, never hidden.</div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">06 / 18</div>
+</body></html>

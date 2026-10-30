@@ -1,0 +1,73 @@
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# env (real configuration files are local-only; the placeholder example ships)
+.env
+.env.local
+.env*.local
+
+# prisma
+prisma/migrations/dev.db*
+.vercel
+.env*
+!.env.example
+
+
+# ------------------------------
+# Local session artifacts (probes, audits, CLI outputs, scratch) — never shipped
+ # ------------------------------
+/*.log
+/*.cmd
+/*.ps1
+/*.html
+/api-list.txt
+/rpcbody.json
+/structure.txt
+/dirsize.txt
+/measure-tx-size.ts
+/launch-bg.cjs
+/dev-restart.cjs
+/inventory.cjs
+/git-audit.cjs
+/sec-audit.cjs
+/artifacts/
+/*audit*.txt
+/verify-*.txt
+/vcurl-help.txt
+/env-help.txt
+/dev-*.txt
+/out_*.txt
+/grep-out.txt
+/fee-scan.txt
+/sdk-files*.txt
+/pump-exports.txt
+/pump-sdk-api*.txt
+/rpc-mainnet.txt
+/rpc-verify.txt
+/sec-vanity.txt
+/sidebar-vanity.txt
+/tsc-*.txt
+/vverify*.txt
+/whoami*.txt
+/lint-sec.txt
+/dev-restart-marker.txt
+/esbuild-log.txt
+/conn-exports.txt
+/checks-done.txt
+/diag-state.txt
+/live-meta.txt
+/port-check.txt
+/vercel-*.txt
+/staged-list.txt
+/.claude*
+/git-audit*.log
+/audit-*.log
+# local databases (development data — never shipped)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3

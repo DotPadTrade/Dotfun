@@ -1,0 +1,106 @@
+"use client";
+/**
+ * Identity header for tokens discovered on-chain but not registered in
+ * RelayPad's launch registry. Pulls the discovery snapshot (real provider
+ * data) and falls back to the raw mint when the token is not discovered.
+ */
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { TokenImage } from "@/components/dashboard/token-row";
+import { Badge, Card } from "@/components/ui/primitives";
+import { explorerUrl, solscanUrl, type ClusterId } from "@/lib/constants";
+import { shortAddress } from "@/lib/format";
+
+// Build-time inlined network (no server round-trip in a client component).
+const CLUSTER: ClusterId = process.env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta" ? "mainnet-beta" : "devnet";
+
+interface Discovered {
+  mint: string;
+  name: string;
+  symbol: string;
+  imageUrl: string | null;
+  source: string;
+  status: string;
+  creatorWallet: string | null;
+}
+
+const SOURCE_LABEL: Record<string, string> = {
+  "pumpfun.curve": "Pump.fun curve",
+  "pumpfun.pool": "PumpSwap pool",
+  "launchlab.curve": "LaunchLab curve",
+  "raydium.cpmm": "Raydium CPMM",
+};
+
+export function DiscoveredTokenHeader({ mint }: { mint: string }) {
+  const [found, setFound] = useState<Discovered | null>(null);
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    let live = true;
+    (async () => {
+      try {
+        const res = await fetch(`/api/discovery?q=${encodeURIComponent(mint)}&pageSize=5`, { cache: "no-store" });
+        if (!res.ok) return;
+        const data = (await res.json()) as { tokens: Discovered[] };
+        const match = data.tokens.find((t) => t.mint === mint);
+        if (live && match) setFound(match);
+      } catch {
+        // Header falls back to the raw mint display.
+      } finally {
+        if (live) setChecked(true);
+      }
+    })();
+    return () => {
+      live = false;
+    };
+  }, [mint]);
+
+  const name = found?.name ?? `Mint ${shortAddress(mint, 6)}`;
+  const symbol = found?.symbol ?? "???";
+
+  return (
+    <Card className="mb-4">
+      <div className="flex flex-wrap items-center gap-3">
+        <TokenImage imageUrl={found?.imageUrl ?? null} symbol={symbol} size={48} />
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-lg font-semibold tracking-tight text-white">{name}</h1>
+            <span className="font-mono text-sm text-night-400">${symbol}</span>
+            {found && found.source in SOURCE_LABEL && (
+              <Badge tone="ice">{SOURCE_LABEL[found.source] ?? found.source}</Badge>
+            )}
+            {found?.status === "curve" && <Badge tone="mint">bonding curve</Badge>}
+            {found?.status === "pool" && <Badge tone="success">pool</Badge>}
+          </div>
+          <p className="mt-1 break-all font-mono text-2xs text-night-500">
+            {shortAddress(mint, 8)}{" "}
+            <a href={explorerUrl("mainnet-beta", "address", mint)} target="_blank" rel="noopener noreferrer" className="text-ice-300 hover:underline">
+              Explorer
+            </a>{" "}
+            ·{" "}
+            <a href={solscanUrl(CLUSTER, "account", mint)} target="_blank" rel="noopener noreferrer" className="text-ice-300 hover:underline">
+              Solscan
+            </a>
+          </p>
+          {checked && !found && (
+            <p className="mt-1 text-2xs text-night-500">
+              This token is not in the current discovery snapshot — market analytics below are derived directly from
+              on-chain data when a venue exists.
+            </p>
+          )}
+          {found?.creatorWallet && (
+            <p className="mt-1 text-2xs text-night-500">
+              Creator:{" "}
+              <span className="font-mono">{shortAddress(found.creatorWallet, 6)}</span>
+            </p>
+          )}
+        </div>
+        <div className="ml-auto">
+          <Link href="/create" className="rounded-lg border border-mint-600/50 bg-mint-600/10 px-3 py-1.5 text-2xs font-medium text-mint-300 transition hover:bg-mint-600/20">
+            Launch your own →
+          </Link>
+        </div>
+      </div>
+    </Card>
+  );
+}

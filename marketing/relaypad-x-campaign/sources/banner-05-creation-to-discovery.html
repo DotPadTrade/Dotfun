@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  .dots { position:absolute; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.05) 1.2px,transparent 1.2px); background-size:46px 46px; }
+  h1 { position:absolute; left:96px; top:96px; color:#fff; font-size:76px; font-weight:800; letter-spacing:-0.02em; }
+  h1 span { color:#55d26c; }
+  .sub { position:absolute; left:96px; top:206px; color:#5c646f; font-size:24px; max-width:900px; line-height:1.5; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  /* winding journey path */
+  .path { position:absolute; left:0; top:0; }
+  /* stage cards riding the path */
+  .stage { position:absolute; width:300px; border-radius:16px; background:#101318;
+    border:1px solid #1e232b; padding:22px 24px; box-shadow:0 24px 60px rgba(0,0,0,.5); }
+  .stage .n { font-family:Consolas,monospace; color:#55d26c; font-size:17px; letter-spacing:.2em; }
+  .stage .t { color:#fff; font-size:27px; font-weight:700; margin-top:6px; }
+  .stage .d { color:#5c646f; font-size:18px; margin-top:6px; line-height:1.4; }
+  .stage.hl { border-color:rgba(85,210,108,.6); }
+  .node { position:absolute; width:14px; height:14px; border-radius:50%; background:#08090c;
+    border:3px solid #2eb246; }
+  .node.end { background:#2eb246; box-shadow:0 0 18px rgba(46,178,70,.8); }
+  .foot { position:absolute; right:96px; bottom:48px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; left:96px; bottom:48px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="dots"></div>
+  <h1>From creation <span>to discovery.</span></h1>
+  <div class="sub">One shared flow carries every launch — and the journey <b>doesn't end at the signature</b>.</div>
+  <svg class="path" width="1500" height="480" viewBox="0 0 1500 480" style="left:60px;top:380px">
+    <path d="M40 120 C 260 30, 420 30, 560 130 C 700 230, 760 330, 940 330 C 1120 330, 1200 220, 1440 90"
+          stroke="#1e232b" stroke-width="3" fill="none"/>
+    <path d="M40 120 C 260 30, 420 30, 560 130 C 700 230, 760 330, 940 330 C 1120 330, 1200 220, 1440 90"
+          stroke="#2eb246" stroke-width="2.5" fill="none" stroke-dasharray="2 12" stroke-linecap="round"/>
+    <circle cx="40" cy="120" r="8" fill="#2eb246"/>
+    <circle cx="560" cy="130" r="8" fill="#08090c" stroke="#2eb246" stroke-width="3"/>
+    <circle cx="940" cy="330" r="8" fill="#08090c" stroke="#2eb246" stroke-width="3"/>
+    <circle cx="1440" cy="90" r="10" fill="#2eb246"/>
+  </svg>
+  <div class="node" style="left:94px;top:494px"></div>
+  <div class="stage" style="left:20px;top:404px">
+    <div class="n">STEP 01</div><div class="t">Create & configure</div>
+    <div class="d">Metadata pinned to IPFS, fees shown up front.</div></div>
+  <div class="node" style="left:614px;top:504px"></div>
+  <div class="stage" style="left:520px;top:420px">
+    <div class="n">STEP 02</div><div class="t">Sign & confirm</div>
+    <div class="d">Your wallet signs. Submits resolve before any retry.</div></div>
+  <div class="node" style="left:994px;top:704px"></div>
+  <div class="stage" style="left:880px;top:612px">
+    <div class="n">STEP 03</div><div class="t">Curve & graduation</div>
+    <div class="d">Lifecycle tracked against on-chain state only.</div></div>
+  <div class="node end" style="left:1494px;top:464px"></div>
+  <div class="stage hl" style="left:1240px;top:560px">
+    <div class="n">STEP 04</div><div class="t">Discovered</div>
+    <div class="d">Listed for everyone exploring RelayPad.</div></div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">05 / 18</div>
+</body></html>

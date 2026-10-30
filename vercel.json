@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "src/app/api/discovery/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/rpc/route.ts": {
+      "maxDuration": 30
+    }
+  }
+}

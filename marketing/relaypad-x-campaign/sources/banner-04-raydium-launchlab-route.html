@@ -1,0 +1,61 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#0a0c11;
+    font-family:"Segoe UI",sans-serif; }
+  /* right-aligned copy block — mirrors banner 03 */
+  .kicker { position:absolute; right:96px; top:92px; color:#74c0fc; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; right:96px; top:128px; color:#fff; font-size:82px; font-weight:800;
+    letter-spacing:-0.02em; text-align:right; line-height:1.08; }
+  h1 span { color:#a5d8ff; }
+  .sub { position:absolute; right:96px; top:352px; color:#5c646f; font-size:24px; width:620px;
+    text-align:right; line-height:1.55; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  /* orbital system, left side */
+  .orbit { position:absolute; left:130px; top:150px; width:640px; height:640px; }
+  .core { position:absolute; left:296px; top:296px; width:148px; height:148px;
+    background:linear-gradient(180deg,#1c7ed6,#0b3f75);
+    clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 60px rgba(59,158,255,.35); }
+  .core span { color:#fff; font-weight:800; font-size:26px; letter-spacing:.06em; }
+  .sat { position:absolute; border-radius:50%; background:#74c0fc; box-shadow:0 0 14px rgba(116,192,252,.8); }
+  .sat.s2 { background:#a5d8ff; }
+  /* liquidity ribbon flowing into the core */
+  .ribbon { position:absolute; left:0; top:0; }
+  /* stage chips along the flow */
+  .chip { position:absolute; font-family:Consolas,monospace; font-size:18px; color:#a5d8ff;
+    border:1px solid rgba(116,192,252,.4); background:rgba(28,126,214,.10); border-radius:8px; padding:8px 14px; }
+  .foot { position:absolute; right:96px; bottom:48px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; left:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <svg class="orbit" width="640" height="640" viewBox="0 0 640 640">
+    <ellipse cx="320" cy="320" rx="290" ry="110" stroke="#1c7ed6" stroke-opacity=".35" fill="none" stroke-width="1.5" transform="rotate(-18 320 320)"/>
+    <ellipse cx="320" cy="320" rx="225" ry="225" stroke="#3b9eff" stroke-opacity=".25" fill="none" stroke-width="1.5" stroke-dasharray="3 9"/>
+    <ellipse cx="320" cy="320" rx="150" ry="60" stroke="#74c0fc" stroke-opacity=".5" fill="none" stroke-width="2" transform="rotate(22 320 320)"/>
+    <circle cx="86" cy="392" r="7" fill="#74c0fc"/>
+    <circle cx="540" cy="220" r="9" fill="#a5d8ff"/>
+  </svg>
+  <div class="core"><span>CPMM</span></div>
+  <svg class="ribbon" width="900" height="900" viewBox="0 0 900 900" style="left:0;top:0">
+    <defs><linearGradient id="r" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#74c0fc" stop-opacity="0"/><stop offset="1" stop-color="#3b9eff"/></linearGradient></defs>
+    <path d="M-40 860 C 180 830, 200 700, 330 640 C 470 575, 470 480, 448 428"
+          stroke="url(#r)" stroke-width="10" fill="none" stroke-linecap="round" opacity=".85"/>
+    <path d="M-40 860 C 180 830, 200 700, 330 640 C 470 575, 470 480, 448 428"
+          stroke="#a5d8ff" stroke-width="1.5" fill="none" opacity=".4"/>
+  </svg>
+  <div class="chip" style="left:70px;top:742px">LaunchLab curve</div>
+  <div class="chip" style="left:398px;top:560px">graduation</div>
+  <div class="chip" style="left:560px;top:250px">CPMM pool verified</div>
+  <div class="kicker">ROUTE B — RAYDIUM LAUNCHLAB</div>
+  <h1>Through the Lab.<br><span>Into the pool.</span></h1>
+  <div class="sub">Create on the <b>LaunchLab</b> bonding curve with the official
+  <b>raydium-sdk-v2</b>. On graduation, liquidity migrates to a <b>Raydium CPMM</b> pool —
+  verified on-chain before RelayPad calls it done.</div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">04 / 18</div>
+</body></html>

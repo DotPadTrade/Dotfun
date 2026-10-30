@@ -1,0 +1,69 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  .kicker { position:absolute; left:96px; top:88px; color:#8ae8a0; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; left:96px; top:128px; color:#fff; font-size:74px; font-weight:800;
+    letter-spacing:-0.02em; }
+  h1 span { color:#55d26c; }
+  .sub { position:absolute; left:96px; top:240px; color:#5c646f; font-size:23px; max-width:620px; line-height:1.5; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  /* ascending isometric steps, left → right */
+  .step { position:absolute; width:400px; transform:rotateX(0deg); }
+  .plate { border-radius:14px; padding:20px 24px; }
+  .step .tag { display:inline-block; font-family:Consolas,monospace; font-size:17px; letter-spacing:.18em;
+    padding:6px 14px; border-radius:8px; margin-bottom:12px; }
+  .step ul { list-style:none; }
+  .step li { color:#5c646f; font-size:19px; padding:5px 0; border-top:1px dashed #1e232b; }
+  .step li b { color:#c9d2de; font-weight:600; }
+  .s1 .plate { background:#101318; border:1px solid rgba(85,210,108,.65); }
+  .s1 .tag { color:#8ae8a0; border:1px solid rgba(85,210,108,.6); }
+  .s2 .plate { background:#0e1116; border:1px solid rgba(116,192,252,.5); }
+  .s2 .tag { color:#a5d8ff; border:1px solid rgba(116,192,252,.45); }
+  .s3 .plate { background:#0b0d11; border:1px dashed #3e4650; }
+  .s3 .tag { color:#5c646f; border:1px dashed #3e4650; }
+  .path { position:absolute; }
+  .foot { position:absolute; left:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; right:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="kicker">THE ROAD AHEAD</div>
+  <h1>Honestly labeled. <span>No dates.</span></h1>
+  <div class="sub">Shipped is shipped. Everything else carries its own label —
+  <b>planned</b> or <b>under evaluation</b> — and changes only in public.</div>
+  <svg class="path" width="1500" height="420" viewBox="0 0 1500 420" style="left:40px;top:390px">
+    <path d="M80 340 C 400 300, 700 240, 1000 180 C 1200 140, 1320 110, 1420 80"
+          stroke="#1e232b" stroke-width="2.5" fill="none" stroke-dasharray="2 10"/>
+    <circle cx="80" cy="340" r="9" fill="#2eb246"/>
+    <circle cx="1000" cy="180" r="8" fill="#08090c" stroke="#74c0fc" stroke-width="3"/>
+    <circle cx="1420" cy="80" r="8" fill="none" stroke="#3e4650" stroke-width="3" stroke-dasharray="3 4"/>
+  </svg>
+  <div class="step s1" style="left:96px;top:500px">
+    <div class="plate">
+      <span class="tag">● LIVE NOW</span>
+      <ul><li><b>Dual-route launch flow</b> — Pump & LaunchLab</li>
+      <li>Token discovery & live activity</li>
+      <li>In-browser vanity mint generator</li></ul>
+    </div>
+  </div>
+  <div class="step s2" style="left:600px;top:380px">
+    <div class="plate">
+      <span class="tag">○ NEXT · PLANNED, NOT SHIPPED</span>
+      <ul><li>Richer launch lifecycle monitoring</li>
+      <li>Deeper discovery & filtering</li>
+      <li>Creator dashboards & analytics</li></ul>
+    </div>
+  </div>
+  <div class="step s3" style="left:1104px;top:270px">
+    <div class="plate">
+      <span class="tag">◌ EXPLORING · NOT COMMITTED</span>
+      <ul><li>Cross-route portfolio insights</li>
+      <li>Launch event notifications</li></ul>
+    </div>
+  </div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">16 / 18</div>
+</body></html>

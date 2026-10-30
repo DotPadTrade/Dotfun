@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#0a0c11;
+    font-family:"Segoe UI",sans-serif; }
+  /* ledger ruling across the background */
+  .ledger { position:absolute; inset:0;
+    background:repeating-linear-gradient(0deg,transparent 0 58px,rgba(255,255,255,.035) 58px 59px); }
+  .ledger::after { content:""; position:absolute; left:96px; top:0; bottom:0; width:2px; background:rgba(223,90,90,.25); }
+  .kicker { position:absolute; left:130px; top:84px; color:#8ae8a0; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; left:130px; top:124px; color:#fff; font-size:74px; font-weight:800;
+    letter-spacing:-0.02em; }
+  h1 span { color:#55d26c; }
+  .sub { position:absolute; left:130px; top:236px; color:#5c646f; font-size:22px; max-width:600px; line-height:1.55; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  .stamp { position:absolute; left:130px; top:448px; transform:rotate(-4deg);
+    border:3px solid rgba(85,210,108,.75); border-radius:10px; padding:10px 24px;
+    color:#8ae8a0; font-family:Consolas,monospace; font-size:22px; font-weight:700; letter-spacing:.14em; }
+  /* three treasury role cards, ledger-style */
+  .card { position:absolute; width:300px; background:#0c0e12; border:1px solid #1e232b; border-radius:14px;
+    padding:20px 22px; box-shadow:0 22px 55px rgba(0,0,0,.5); }
+  .card .role { font-family:Consolas,monospace; color:#55d26c; font-size:16px; letter-spacing:.18em; }
+  .card .t { color:#fff; font-size:24px; font-weight:700; margin-top:8px; }
+  .card .d { color:#5c646f; font-size:17px; margin-top:8px; line-height:1.45; }
+  .card .rule { margin-top:14px; border-top:1px dashed #1e232b; padding-top:10px;
+    font-family:Consolas,monospace; font-size:15px; color:#3e4650; }
+  .flow { position:absolute; height:0; border-top:2px dashed rgba(85,210,108,.4); }
+  .flow::after { content:""; position:absolute; right:-2px; top:-7px;
+    border:6px solid transparent; border-left:11px solid rgba(85,210,108,.7); }
+  .foot { position:absolute; right:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; left:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="ledger"></div>
+  <div class="kicker">THE TREASURY VISION</div>
+  <h1>Counted in public. <span>Acting in public.</span></h1>
+  <div class="sub">The official treasury dashboard is <b>live and read-only</b> — configured wallet
+  roles tracked and reconciled against on-chain state. <b>Automated buybacks and burns are not
+  operational.</b> The direction is designed and documented; it ships when it's safe.</div>
+  <div class="stamp">READ-ONLY · VERIFIED</div>
+  <div class="card" style="right:430px;top:340px">
+    <div class="role">W1 · FEE RECIPIENT</div><div class="t">Creator fees</div>
+    <div class="d">Receives official-$RELAY creator fees on both routes.</div>
+    <div class="rule">status: configured in app</div></div>
+  <div class="card" style="right:96px;top:440px">
+    <div class="role">W2 · BUYBACK</div><div class="t">Buyback & burn</div>
+    <div class="d">Proposed destination for the buyback slice — capped, gated, audited.</div>
+    <div class="rule">status: deferred until automation</div></div>
+  <div class="card" style="right:430px;top:620px">
+    <div class="role">W3 · OPS & RESERVE</div><div class="t">Operations & reserve</div>
+    <div class="d">Ops, reserve and growth slices — separated from the buyback path.</div>
+    <div class="rule">status: planned configuration</div></div>
+  <div class="flow" style="right:396px;top:470px;width:140px"></div>
+  <div class="flow" style="right:396px;top:600px;width:240px;transform:scaleY(-1)"></div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">14 / 18</div>
+</body></html>

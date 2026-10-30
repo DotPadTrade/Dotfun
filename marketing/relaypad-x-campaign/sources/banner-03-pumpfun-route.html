@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  .curve { position:absolute; left:0; top:0; }
+  .curve-label { position:absolute; color:#5c646f; font-family:Consolas,monospace; font-size:19px; }
+  .gate { position:absolute; left:984px; top:400px; bottom:150px; width:0;
+    border-left:2px dashed rgba(85,210,108,.45); }
+  .gate-tag { position:absolute; left:1006px; top:760px; color:#55d26c; font-size:18px; font-weight:700;
+    letter-spacing:.24em; }
+  .rail { position:absolute; left:990px; top:368px; width:400px; height:2px;
+    background:linear-gradient(90deg,rgba(85,210,108,.8),#2eb246); }
+  .rail::after { content:""; position:absolute; right:-4px; top:-7px;
+    border:8px solid transparent; border-left:14px solid #2eb246; }
+  .node { position:absolute; left:1396px; top:278px; width:170px; height:170px; border-radius:26px;
+    border:1px solid rgba(85,210,108,.55); background:linear-gradient(180deg,rgba(46,178,70,.14),rgba(8,9,12,.4));
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
+  .node .glyph { width:54px; height:54px; border-radius:14px; background:#2eb246; position:relative; }
+  .node .glyph::before { content:"⇄"; position:absolute; inset:0; display:flex; align-items:center;
+    justify-content:center; color:#08090c; font-size:32px; font-weight:800; }
+  .node .t { color:#fff; font-weight:700; font-size:22px; }
+  .node .s { color:#5c646f; font-size:16px; font-family:Consolas,monospace; }
+  .tok { position:absolute; border-radius:50%; background:#55d26c; box-shadow:0 0 16px rgba(85,210,108,.7); }
+  .kicker { position:absolute; left:96px; top:88px; color:#55d26c; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; left:96px; top:130px; color:#fff; font-size:84px; font-weight:800; letter-spacing:-0.02em; }
+  h1 span { color:#8ae8a0; }
+  .sub { position:absolute; left:96px; top:250px; color:#5c646f; font-size:24px; max-width:620px; line-height:1.55; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  .foot { position:absolute; left:96px; bottom:48px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .note { position:absolute; right:96px; bottom:96px; color:#3e4650; font-size:17px; font-family:Consolas,monospace; }
+  .idx { position:absolute; right:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace; font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <svg class="curve" width="1010" height="500" viewBox="0 0 1010 500" style="left:0;top:330px">
+    <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2eb246" stop-opacity=".15"/><stop offset="1" stop-color="#55d26c"/></linearGradient></defs>
+    <path d="M30 460 C 250 452, 460 410, 650 300 C 800 212, 910 120, 985 38"
+          stroke="#1f8f36" stroke-width="1.5" fill="none" opacity=".5"/>
+    <path d="M30 460 C 250 452, 460 410, 650 300 C 800 212, 910 120, 985 38"
+          stroke="url(#g)" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="985" cy="38" r="9" fill="#55d26c"/>
+  </svg>
+  <div class="curve-label" style="left:120px;top:690px">price rises as the curve fills</div>
+  <div class="gate"></div><div class="gate-tag">GRADUATION</div>
+  <div class="rail"></div>
+  <div class="node"><div class="glyph"></div><div class="t">PumpSwap</div><div class="s">verified pool</div></div>
+  <div class="tok" style="left:198px;top:762px;width:14px;height:14px"></div>
+  <div class="tok" style="left:452px;top:726px;width:11px;height:11px;opacity:.8"></div>
+  <div class="tok" style="left:706px;top:614px;width:11px;height:11px;opacity:.65"></div>
+  <div class="kicker">ROUTE A — PUMP.FUN</div>
+  <h1>Curve first. <span>Then a real pool.</span></h1>
+  <div class="sub">Tokens mint through the official <b>pump-sdk</b> onto the Pump.fun bonding curve.
+  When the curve completes, <b>pump.fun's protocol</b> migrates the liquidity —
+  RelayPad detects and verifies the resulting PumpSwap pool.</div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="note">relaypad verifies · migration by the protocol</div>
+  <div class="idx">03 / 18</div>
+</body></html>

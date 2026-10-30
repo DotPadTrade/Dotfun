@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  /* fine measurement grid */
+  .grid { position:absolute; inset:0;
+    background-image:linear-gradient(rgba(85,210,108,.05) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(85,210,108,.05) 1px,transparent 1px);
+    background-size:100px 100px; }
+  .kicker { position:absolute; left:96px; top:88px; color:#55d26c; font-size:19px; font-weight:600;
+    letter-spacing:.4em; }
+  h1 { position:absolute; left:96px; top:128px; color:#fff; font-size:78px; font-weight:800;
+    letter-spacing:-0.02em; }
+  h1 span { color:#8ae8a0; }
+  .sub { position:absolute; left:96px; top:244px; color:#5c646f; font-size:23px; max-width:640px; line-height:1.55; }
+  .sub b { color:#c9d2de; font-weight:600; }
+  /* the giant base58 subject */
+  .subject { position:absolute; left:0; right:0; top:430px; text-align:center;
+    font-family:Consolas,monospace; font-size:64px; letter-spacing:.06em; color:#5c646f; white-space:nowrap; }
+  .subject .want { color:#08090c; background:#2eb246; border-radius:12px; padding:2px 18px 6px;
+    font-weight:700; box-shadow:0 0 44px rgba(46,178,70,.4); position:relative; }
+  .want::before { content:""; position:absolute; inset:-13px; border:2px solid #55d26c;
+    border-radius:16px; box-shadow:0 0 30px rgba(46,178,70,.35); }
+  .subject .rest { color:#c9d2de; }
+  .subject .mask { color:#3e4650; }
+  /* crosshair on the found prefix */
+  .xh { position:absolute; left:50%; top:430px; transform:translateX(-860px); }
+  .xh i { position:absolute; background:#55d26c; }
+  .scan { position:absolute; left:0; right:0; top:520px; height:2px;
+    background:linear-gradient(90deg,transparent,rgba(85,210,108,.8),transparent); }
+  /* stats row, mono */
+  .stats { position:absolute; left:0; right:0; top:580px; text-align:center;
+    font-family:Consolas,monospace; font-size:20px; color:#5c646f; }
+  .stats b { color:#8ae8a0; font-weight:400; }
+  .meta { position:absolute; left:0; right:0; top:626px; text-align:center;
+    font-family:Consolas,monospace; font-size:17px; color:#3e4650; }
+  .foot { position:absolute; left:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .guard { position:absolute; right:96px; bottom:44px; font-family:Consolas,monospace; font-size:18px;
+    color:#3e4650; }
+</style></head><body>
+  <div class="grid"></div>
+  <div class="kicker">YOUR MINT, YOUR IDENTITY</div>
+  <h1>Names are earned <span>in base58.</span></h1>
+  <div class="sub">The vanity engine runs <b>entirely in your browser</b> — a cancellable Web Worker,
+  keys that never leave page memory, and honest difficulty expectations. Example pattern:</div>
+  <div class="scan"></div>
+  <div class="subject">
+    <span class="want">RLY</span><span class="rest">7xQ</span><span class="mask">••••••••••••••</span><span class="rest">9mZf</span>
+  </div>
+  <!-- the wanted prefix carries its own targeting outline -->
+  <div class="stats"><b>attempts 1,204,318</b> · worker: running · <b>cancel anytime</b></div>
+  <div class="meta">keys generated locally · never stored · never transmitted · pattern is illustrative</div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="guard">no timing promises — that's the math</div>
+</body></html>

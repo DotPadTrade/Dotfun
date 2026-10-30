@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; overflow:hidden; background:#08090c;
+    font-family:"Segoe UI",sans-serif; }
+  /* kinetic repeated wordmark, climbing diagonals */
+  .kin { position:absolute; white-space:nowrap; font-weight:800; letter-spacing:-0.02em; }
+  .k1 { left:-40px; top:64px; font-size:200px; color:rgba(46,178,70,.14); transform:rotate(-4deg); }
+  .k2 { left:-80px; top:250px; font-size:200px; color:rgba(46,178,70,.30); transform:rotate(-4deg); }
+  .k3 { left:-120px; top:436px; font-size:200px; color:#55d26c; transform:rotate(-4deg);
+    text-shadow:0 0 60px rgba(46,178,70,.35); }
+  .k4 { left:-160px; top:622px; font-size:200px; color:rgba(46,178,70,.10); transform:rotate(-4deg); }
+  /* speed streaks */
+  .streak { position:absolute; height:3px; border-radius:2px;
+    background:linear-gradient(90deg,transparent,#2eb246 55%,#8ae8a0); }
+  .s1 { left:60px; top:210px; width:520px; opacity:.7; }
+  .s2 { left:160px; top:396px; width:420px; opacity:.5; }
+  .s3 { left:620px; top:300px; width:280px; opacity:.35; }
+  .s4 { left:900px; top:430px; width:360px; opacity:.5; }
+  .s5 { left:1100px; top:160px; width:340px; opacity:.3; }
+  /* up / down glyph field on the right */
+  .tri { position:absolute; width:0; height:0; border-left:16px solid transparent;
+    border-right:16px solid transparent; }
+  .up { border-bottom:26px solid #22c55e; }
+  .dn { border-top:26px solid #ef4444; }
+  .copy { position:absolute; right:110px; top:528px; width:640px; text-align:right; z-index:5; }
+  .copy .kick { color:#55d26c; font-size:19px; font-weight:600; letter-spacing:.4em; }
+  .copy h1 { color:#fff; font-size:66px; font-weight:800; letter-spacing:-0.02em; margin-top:14px; line-height:1.08; }
+  .copy p { color:#5c646f; font-size:23px; margin-top:18px; line-height:1.5; }
+  .copy p b { color:#c9d2de; font-weight:600; }
+  .foot { position:absolute; left:96px; bottom:44px; display:flex; align-items:center; gap:14px; }
+  .foot img { height:44px; }
+  .foot span { color:#fff; font-size:24px; font-weight:700; } .foot span i { color:#55d26c; font-style:normal; }
+  .idx { position:absolute; right:96px; bottom:44px; color:#3e4650; font-family:Consolas,monospace;
+    font-size:20px; letter-spacing:.2em; }
+</style></head><body>
+  <div class="kin k1">MOVERS</div>
+  <div class="kin k2">MOVERS</div>
+  <div class="kin k3">MOVERS</div>
+  <div class="kin k4">MOVERS</div>
+  <div class="streak s1"></div><div class="streak s2"></div><div class="streak s3"></div>
+  <div class="streak s4"></div><div class="streak s5"></div>
+  <div class="tri up" style="left:1180px;top:120px"></div>
+  <div class="tri dn" style="left:1320px;top:260px"></div>
+  <div class="tri up" style="left:1440px;top:200px;transform:scale(.7)"></div>
+  <div class="tri up" style="left:1260px;top:390px;transform:scale(.6)"></div>
+  <div class="tri dn" style="left:1390px;top:470px;transform:scale(.55)"></div>
+  <div class="tri up" style="left:1090px;top:420px;transform:scale(.8)"></div>
+  <div class="copy">
+    <div class="kick">FIND WHAT IS MOVING</div>
+    <h1>Motion with receipts.</h1>
+    <p>Movers only lists tokens with a <b>verified 24h change</b> — if a provider
+    doesn't supply one, nothing is invented. Data, not signals.</p>
+  </div>
+  <div class="foot"><img src="../../../public/relaypad-logo-transparent.png" alt=""><span>Relay<i>Pad</i></span></div>
+  <div class="idx">07 / 18</div>
+</body></html>
