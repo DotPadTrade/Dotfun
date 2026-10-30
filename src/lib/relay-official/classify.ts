@@ -339,7 +339,7 @@ export function classifyTransaction(
     // burnChecked: {account, mint, tokenAmount:{amount, decimals}}.
     // legacy burn: {account, amount} — mint/decimals derived from the
     // transaction's own token balances by accountIndex; never guessed.
-    let amount: string | null =
+    const amount: string | null =
       addressOf(info.amount) ??
       (typeof (info.tokenAmount as { amount?: string } | undefined)?.amount === "string"
         ? ((info.tokenAmount as { amount?: string }).amount as string)
@@ -440,7 +440,7 @@ export function classifyTransaction(
         info.tokenAmount && typeof info.tokenAmount === "object"
           ? (info.tokenAmount as { amount?: string; decimals?: number })
           : null;
-      let amount: string | null =
+      const amount: string | null =
         addressOf(info.amount) ?? (tokenAmount?.amount ?? null);
       let mint: string | null = addressOf(info.mint);
       let decimals: number | null =
