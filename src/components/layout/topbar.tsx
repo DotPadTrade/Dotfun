@@ -14,10 +14,10 @@ import { WalletButton } from "@/components/wallet/wallet-button";
 import { RouteBadge } from "@/components/brand/route-badge";
 import { shortAddress } from "@/lib/format";
 
-/** Official social links — opened in a new tab, never routed in-app. */
+/** Official DotPad social links — opened in a new tab, never routed in-app. */
 const SOCIAL_LINKS = [
-  { href: "https://x.com/RelayPadHQ", label: "X (Twitter)", brand: "x" as const, size: 13 },
-  { href: "https://github.com/Relaypad", label: "GitHub", brand: "github" as const, size: 15 },
+  { href: "https://x.com/DotPadHQ", label: "Official DotPad on X", brand: "x" as const, size: 13 },
+  { href: "https://github.com/DotPadTrade", label: "Official DotPad GitHub", brand: "github" as const, size: 15 },
 ];
 
 function SocialLinks() {
@@ -31,7 +31,7 @@ function SocialLinks() {
           rel="noopener noreferrer"
           aria-label={s.label}
           title={s.label}
-          className="flex h-8 w-8 items-center justify-center rounded-md text-night-400 transition hover:bg-night-800 hover:text-white"
+          className="flex h-8 w-8 items-center justify-center rounded-md text-night-400 transition hover:bg-night-800 hover:text-white active:bg-night-700/60"
         >
           <BrandIcon name={s.brand} size={s.size} />
         </a>

@@ -9,9 +9,10 @@
  * dashboard always render the SAME configured value (single source of truth).
  *
  * Honesty guarantees:
- * - Placeholder configuration renders the exact placeholder string with a
- *   "CA NOT OFFICIAL YET" badge and a DISABLED copy button — the placeholder
- *   is never presented as a real address and never linked to an explorer.
+ * - Unconfigured/placeholder configuration renders the honest "not
+ *   configured" CA text with a "CA NOT OFFICIAL YET" badge and a DISABLED
+ *   copy button — no placeholder string is ever presented as an address
+ *   and nothing is linked to an explorer.
  * - A valid configured mint enables copying but keeps a "NOT YET VERIFIED"
  *   badge until the mint has been explicitly verified on-chain.
  */
@@ -65,7 +66,7 @@ export function OfficialTokenCard({
   useEffect(() => {
     // The server-rendered view paints instantly; the card still revalidates
     // against the API on mount so the CA always reflects the CURRENT
-    // RELAY_OFFICIAL_MINT configuration (env changes must reach the page
+    // DOTPAD_OFFICIAL_MINT configuration (env changes must reach the page
     // without a rebuild or redeploy).
     void load({ silent: Boolean(initialView) });
     return () => {

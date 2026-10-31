@@ -1,9 +1,6 @@
 import type { ClusterId } from "../constants";
 import { explorerUrl } from "../constants";
-import {
-  RELAY_OFFICIAL_MINT_PLACEHOLDER,
-  type RelayOfficialConfig,
-} from "./config";
+import type { RelayOfficialConfig } from "./config";
 
 /**
  * View model for the public "Official $RELAY Token" section.
@@ -12,18 +9,27 @@ import {
  * configuration (the single source of truth used by the treasury dashboard).
  *
  * Honesty rules encoded here:
- * - A missing or explicit-placeholder mint renders the exact placeholder
- *   string with a "CA NOT OFFICIAL YET" badge and copying disabled.
+ * - A missing or explicit-placeholder mint renders the honest "not configured"
+ *   CA text (never an address-looking string) with a "CA NOT OFFICIAL YET"
+ *   badge and copying disabled.
  * - A configured value that is not a valid Solana public address renders an
  *   error state with copying disabled; the raw invalid value is never exposed.
  * - A configured VALID Solana public address enables copying, but the badge
  *   stays "NOT YET VERIFIED": a syntactically valid address does not prove
- *   the token is the official $RELAY. Official status requires explicit
+ *   the token is the official $DOT. Official status requires explicit
  *   verification (future on-chain verification step).
  */
 
 export const OFFICIAL_TOKEN_NAME = "DotPad";
 export const OFFICIAL_TOKEN_SYMBOL = "$DOT";
+
+/** CA-row text while the official $DOT mint is unconfigured — never an address. */
+export const OFFICIAL_MINT_UNCONFIGURED_TEXT =
+  "Official $DOT mint has not been configured yet.";
+
+/** CA-row text when the configured mint is not a valid Solana address (raw value never exposed). */
+export const OFFICIAL_MINT_INVALID_TEXT =
+  "Official $DOT mint configuration is invalid.";
 
 export type OfficialTokenStatus = "placeholder" | "invalid" | "configured";
 
@@ -72,8 +78,8 @@ export function officialTokenView(
       status: "invalid",
       network: config.network,
       networkLabel,
-      // The raw invalid value is never exposed publicly.
-      displayValue: RELAY_OFFICIAL_MINT_PLACEHOLDER,
+      // The raw invalid value is never exposed publicly — honest text only.
+      displayValue: OFFICIAL_MINT_INVALID_TEXT,
       mint: null,
       copyable: false,
       badgeLabel: "INVALID CONFIGURATION",
@@ -84,12 +90,13 @@ export function officialTokenView(
   }
 
   // Unset or the explicit placeholder — the official token has not been
-  // announced yet. Renders the exact placeholder string, never as an address.
+  // announced yet. Renders the honest not-configured text, never a
+  // placeholder string and never an address-looking value.
   return {
     status: "placeholder",
     network: config.network,
     networkLabel,
-    displayValue: RELAY_OFFICIAL_MINT_PLACEHOLDER,
+    displayValue: OFFICIAL_MINT_UNCONFIGURED_TEXT,
     mint: null,
     copyable: false,
     badgeLabel: "CA NOT OFFICIAL YET",

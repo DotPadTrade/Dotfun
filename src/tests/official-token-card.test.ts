@@ -18,7 +18,7 @@ afterEach(cleanup);
 
 import { OfficialTokenCard } from "@/components/official/official-token-card";
 import type { OfficialTokenView } from "@/lib/relay-official/token-display";
-import { RELAY_OFFICIAL_MINT_PLACEHOLDER } from "@/lib/relay-official/config";
+import { OFFICIAL_MINT_UNCONFIGURED_TEXT } from "@/lib/relay-official/token-display";
 import { explorerUrl } from "@/lib/constants";
 
 const RELAY_MINT = "Re1ayMintAddressAAAAAAAAAAAAAAAAAAAAAAAAAAA";
@@ -27,7 +27,7 @@ const placeholderView: OfficialTokenView = {
   status: "placeholder",
   network: "mainnet-beta",
   networkLabel: "Solana Mainnet",
-  displayValue: RELAY_OFFICIAL_MINT_PLACEHOLDER,
+  displayValue: OFFICIAL_MINT_UNCONFIGURED_TEXT,
   mint: null,
   copyable: false,
   badgeLabel: "CA NOT OFFICIAL YET",
@@ -48,9 +48,11 @@ const configuredView: OfficialTokenView = {
 };
 
 describe("OfficialTokenCard — placeholder vs configured", () => {
-  it("renders the placeholder with a disabled copy button and no explorer link", () => {
+  it("renders the not-configured CA text with a disabled copy button and no explorer link", () => {
     render(createElement(OfficialTokenCard, { initialView: placeholderView }));
-    expect(screen.getByText(RELAY_OFFICIAL_MINT_PLACEHOLDER)).toBeTruthy();
+    expect(screen.getByText(OFFICIAL_MINT_UNCONFIGURED_TEXT)).toBeTruthy();
+    // The legacy placeholder string must never appear as the contract address.
+    expect(screen.queryByText("REPLACE_WITH_OFFICIAL_RELAY_MINT")).toBeNull();
     expect(screen.getByText("CA NOT OFFICIAL YET")).toBeTruthy();
     const copy = screen.getByRole("button", { name: /copying is disabled/i });
     expect((copy as HTMLButtonElement).disabled).toBe(true);
@@ -99,7 +101,7 @@ describe("OfficialTokenCard — configuration freshness", () => {
     // Server rendered the placeholder (env not yet configured); the API now
     // returns the configured mint — the card must update automatically.
     render(createElement(OfficialTokenCard, { initialView: placeholderView }));
-    expect(screen.getByText(RELAY_OFFICIAL_MINT_PLACEHOLDER)).toBeTruthy();
+    expect(screen.getByText(OFFICIAL_MINT_UNCONFIGURED_TEXT)).toBeTruthy();
     await waitFor(() => expect(screen.getByText(RELAY_MINT)).toBeTruthy());
     expect(fetchMock.impl).toHaveBeenCalledTimes(1);
   });
@@ -110,8 +112,8 @@ describe("OfficialTokenCard — configuration freshness", () => {
     });
     render(createElement(OfficialTokenCard, { initialView: placeholderView }));
     await waitFor(() => expect(fetchMock.impl).toHaveBeenCalled());
-    // Still the honest placeholder — no fabricated state, no error flash.
-    expect(screen.getByText(RELAY_OFFICIAL_MINT_PLACEHOLDER)).toBeTruthy();
+    // Still the honest not-configured view — no fabricated state, no error flash.
+    expect(screen.getByText(OFFICIAL_MINT_UNCONFIGURED_TEXT)).toBeTruthy();
     expect(screen.getByText("CA NOT OFFICIAL YET")).toBeTruthy();
   });
 

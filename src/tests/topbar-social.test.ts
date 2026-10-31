@@ -47,10 +47,10 @@ function renderTopbar() {
 }
 
 describe("topbar social links (official X + GitHub)", () => {
-  it("renders an X (Twitter) icon link to https://x.com/RelayPadHQ", () => {
+  it("renders an X icon link to https://x.com/DotPadHQ", () => {
     renderTopbar();
-    const link = screen.getByRole("link", { name: "X (Twitter)" });
-    expect(link.getAttribute("href")).toBe("https://x.com/RelayPadHQ");
+    const link = screen.getByRole("link", { name: "Official DotPad on X" });
+    expect(link.getAttribute("href")).toBe("https://x.com/DotPadHQ");
     expect(link.getAttribute("target")).toBe("_blank");
     expect(link.getAttribute("rel")).toContain("noopener");
     expect(link.getAttribute("rel")).toContain("noreferrer");
@@ -60,10 +60,10 @@ describe("topbar social links (official X + GitHub)", () => {
     expect(svg?.getAttribute("fill")).toBe("currentColor");
   });
 
-  it("renders a GitHub icon link to https://github.com/Relaypad", () => {
+  it("renders a GitHub icon link to https://github.com/DotPadTrade", () => {
     renderTopbar();
-    const link = screen.getByRole("link", { name: "GitHub" });
-    expect(link.getAttribute("href")).toBe("https://github.com/Relaypad");
+    const link = screen.getByRole("link", { name: "Official DotPad GitHub" });
+    expect(link.getAttribute("href")).toBe("https://github.com/DotPadTrade");
     expect(link.getAttribute("target")).toBe("_blank");
     expect(link.getAttribute("rel")).toContain("noopener");
     expect(link.getAttribute("rel")).toContain("noreferrer");
@@ -74,8 +74,8 @@ describe("topbar social links (official X + GitHub)", () => {
 
   it("places both social links in the same top-right group as the wallet button", () => {
     renderTopbar();
-    const x = screen.getByRole("link", { name: "X (Twitter)" });
-    const github = screen.getByRole("link", { name: "GitHub" });
+    const x = screen.getByRole("link", { name: "Official DotPad on X" });
+    const github = screen.getByRole("link", { name: "Official DotPad GitHub" });
     const connect = screen.getByRole("button", { name: /connect/i });
     // WalletButton wraps its own button; the shared top-right group is the
     // nearest ancestor with the ml-auto layout class.

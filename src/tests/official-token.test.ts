@@ -6,6 +6,7 @@ import {
 import {
   officialTokenView,
   networkLabelFor,
+  OFFICIAL_MINT_UNCONFIGURED_TEXT,
   type OfficialTokenView,
 } from "@/lib/relay-official/token-display";
 import { copyText, type CopyResult } from "@/components/official/copy-text";
@@ -133,11 +134,12 @@ describe("getRelayOfficialConfig — mint placeholder handling", () => {
 /* --------------------------------------------- official token view model */
 
 describe("officialTokenView — placeholder state", () => {
-  it("renders the exact placeholder with the required badge, message and disabled copy (unset)", () => {
+  it("renders the not-configured CA text with the required badge, message and disabled copy (unset)", () => {
     const view = viewFromConfig({ RELAY_OFFICIAL_NETWORK: "mainnet-beta" });
     expect(view.status).toBe("placeholder");
-    expect(view.displayValue).toBe("REPLACE_WITH_OFFICIAL_RELAY_MINT");
-    expect(view.displayValue).toBe(RELAY_OFFICIAL_MINT_PLACEHOLDER);
+    expect(view.displayValue).toBe(OFFICIAL_MINT_UNCONFIGURED_TEXT);
+    // The legacy placeholder string is never rendered as the contract address.
+    expect(view.displayValue).not.toContain("REPLACE_WITH_OFFICIAL_RELAY_MINT");
     expect(view.badgeLabel).toBe("CA NOT OFFICIAL YET");
     expect(view.message).toBe(
       "The official $DOT token has not been announced yet.",
