@@ -15,6 +15,81 @@ import { copyText, type CopyResult } from "@/components/official/copy-text";
 const W1 = "52Y2w7NXvFk4zUsVGXaq3ai8xBVNV8FX7aME2Vpz2tH";
 const RELAY_MINT = "Re1ayMintAddressAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
+/* ------------------------------------------- config: dual-read precedence */
+
+describe("getRelayOfficialConfig — Phase 1 dual-read precedence", () => {
+  it("reads the new DOTPAD_OFFICIAL_ENABLED switch alone", () => {
+    expect(getRelayOfficialConfig({ DOTPAD_OFFICIAL_ENABLED: "true" }).enabled).toBe(true);
+    expect(getRelayOfficialConfig({ DOTPAD_OFFICIAL_ENABLED: "false" }).enabled).toBe(false);
+  });
+
+  it("falls back to the legacy RELAY_OFFICIAL_ENABLED switch", () => {
+    expect(getRelayOfficialConfig({ RELAY_OFFICIAL_ENABLED: "true" }).enabled).toBe(true);
+  });
+
+  it("the new DOTPAD_* switch wins when both are set", () => {
+    expect(
+      getRelayOfficialConfig({ DOTPAD_OFFICIAL_ENABLED: "false", RELAY_OFFICIAL_ENABLED: "true" }).enabled,
+    ).toBe(false);
+  });
+
+  it("disables when neither switch variable is set", () => {
+    expect(getRelayOfficialConfig({}).enabled).toBe(false);
+  });
+
+  it("reads the new DOTPAD_OFFICIAL_NETWORK override alone", () => {
+    expect(getRelayOfficialConfig({ DOTPAD_OFFICIAL_NETWORK: "mainnet-beta" }).network).toBe("mainnet-beta");
+  });
+
+  it("falls back to the legacy RELAY_OFFICIAL_NETWORK override", () => {
+    expect(getRelayOfficialConfig({ RELAY_OFFICIAL_NETWORK: "mainnet-beta" }).network).toBe("mainnet-beta");
+  });
+
+  it("the new DOTPAD_OFFICIAL_NETWORK override wins when both are set", () => {
+    expect(
+      getRelayOfficialConfig({ DOTPAD_OFFICIAL_NETWORK: "devnet", RELAY_OFFICIAL_NETWORK: "mainnet-beta" }).network,
+    ).toBe("devnet");
+  });
+
+  it("reads wallets from the new DOTPAD_* names alone", () => {
+    const config = getRelayOfficialConfig({ DOTPAD_OFFICIAL_CREATOR_WALLET: W1 });
+    expect(config.wallets.find((w) => w.role === "W1")?.address).toBe(W1);
+  });
+
+  it("falls back to the legacy wallet names", () => {
+    const config = getRelayOfficialConfig({ RELAY_OFFICIAL_CREATOR_WALLET: W1 });
+    expect(config.wallets.find((w) => w.role === "W1")?.address).toBe(W1);
+  });
+
+  it("the new DOTPAD_* wallet name wins when both are set", () => {
+    const config = getRelayOfficialConfig({
+      DOTPAD_OFFICIAL_CREATOR_WALLET: W1,
+      RELAY_OFFICIAL_CREATOR_WALLET: RELAY_MINT,
+    });
+    expect(config.wallets.find((w) => w.role === "W1")?.address).toBe(W1);
+  });
+
+  it("never falls back to RELAY_OFFICIAL_MINT for the $DOT mint", () => {
+    const config = getRelayOfficialConfig({ RELAY_OFFICIAL_MINT: RELAY_MINT });
+    expect(config.mint).toBeNull();
+    expect(officialTokenView(config).message).toBe(
+      "The official $DOT token has not been announced yet.",
+    );
+  });
+
+  it("empty strings count as unset for the dual-read variables", () => {
+    const config = getRelayOfficialConfig({
+      DOTPAD_OFFICIAL_CREATOR_WALLET: "",
+      RELAY_OFFICIAL_CREATOR_WALLET: W1,
+      DOTPAD_OFFICIAL_ENABLED: "",
+      RELAY_OFFICIAL_ENABLED: "true",
+    });
+    expect(config.wallets.find((w) => w.role === "W1")?.address).toBe(W1);
+    expect(config.enabled).toBe(true);
+  });
+});
+
+
 function viewFromConfig(
   env: Record<string, string | undefined>,
 ): OfficialTokenView {

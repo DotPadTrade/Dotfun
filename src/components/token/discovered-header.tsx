@@ -4,6 +4,7 @@
  * RelayPad's launch registry. Pulls the discovery snapshot (real provider
  * data) and falls back to the raw mint when the token is not discovered.
  */
+import { currentNetworkCluster } from "@/lib/network-env";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { TokenImage } from "@/components/dashboard/token-row";
@@ -14,7 +15,7 @@ import { shortAddress } from "@/lib/format";
 import type { TokenSocials } from "@/lib/metadata";
 
 // Build-time inlined network (no server round-trip in a client component).
-const CLUSTER: ClusterId = process.env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta" ? "mainnet-beta" : "devnet";
+const CLUSTER: ClusterId = currentNetworkCluster();
 
 interface Discovered {
   mint: string;

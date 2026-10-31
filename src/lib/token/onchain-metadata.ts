@@ -10,6 +10,7 @@
  * network error) returns nulls — social links are never fabricated, and the
  * on-chain metadata itself is never modified.
  */
+import { currentNetworkRaw } from "../network-env";
 import { PublicKey, Connection } from "@solana/web3.js";
 import { getConnection, resolveServerNetworkConfig } from "../connection";
 import { parseTokenSocials, resolveMetadataHttpUrl, type TokenSocials } from "../metadata";
@@ -81,7 +82,7 @@ export async function fetchTokenSocials(
     return empty;
   }
   try {
-    const cfg = resolveServerNetworkConfig(process.env.NEXT_PUBLIC_RELAYPAD_NETWORK);
+    const cfg = resolveServerNetworkConfig(currentNetworkRaw());
     const connection: Connection = getConnection(cfg);
     const account = await connection.getAccountInfo(metadataPdaFor(mintKey), "confirmed");
     if (!account || !account.data || account.data.length === 0) return empty;

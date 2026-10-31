@@ -1,5 +1,6 @@
 "use client";
 
+import { currentNetworkRaw } from "@/lib/network-env";
 import { useMemo, useRef, useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import {
@@ -91,7 +92,7 @@ export default function CreateTokenPage() {
   const network = useMemo(
     () =>
       resolveBrowserNetworkConfig(
-        process.env.NEXT_PUBLIC_RELAYPAD_NETWORK,
+        currentNetworkRaw(),
         process.env.NEXT_PUBLIC_SOLANA_RPC_URL,
       ),
     [],

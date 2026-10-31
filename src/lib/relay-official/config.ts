@@ -91,17 +91,37 @@ export interface RelayOfficialConfig {
   enabled: boolean;
 }
 
+/**
+ * Phase 1 dual-read: resolve a value from the new DotPad variable first and
+ * fall back to the legacy RelayPad variable. Empty strings count as unset
+ * (env files write VAR= for "configured but empty").
+ */
+function dualEnv(dotpad: string | undefined, legacy: string | undefined): string | undefined {
+  const a = dotpad?.trim();
+  if (a) return a;
+  const b = legacy?.trim();
+  if (b) return b;
+  return undefined;
+}
+
 /** Load the current configuration. Pure over the provided env; no side effects. */
 export function getRelayOfficialConfig(
   env: Partial<
     Pick<
       NodeJS.ProcessEnv,
+      | "DOTPAD_OFFICIAL_CREATOR_WALLET"
+      | "DOTPAD_OFFICIAL_BUYBACK_TREASURY"
+      | "DOTPAD_OFFICIAL_OPS_TREASURY"
+      | "DOTPAD_OFFICIAL_DEV_WALLET"
+      | "DOTPAD_OFFICIAL_MINT"
+      | "DOTPAD_OFFICIAL_NETWORK"
+      | "DOTPAD_OFFICIAL_ENABLED"
+      | "NEXT_PUBLIC_DOTPAD_NETWORK"
       | "RELAY_OFFICIAL_CREATOR_WALLET"
       | "RELAY_OFFICIAL_BUYBACK_TREASURY"
       | "RELAY_OFFICIAL_OPS_TREASURY"
       | "RELAY_OFFICIAL_DEV_WALLET"
       | "RELAY_OFFICIAL_MINT"
-      | "DOTPAD_OFFICIAL_MINT"
       | "RELAY_OFFICIAL_NETWORK"
       | "RELAY_OFFICIAL_ENABLED"
       | "NEXT_PUBLIC_RELAYPAD_NETWORK"
@@ -109,12 +129,19 @@ export function getRelayOfficialConfig(
   > = process.env as Partial<
     Pick<
       NodeJS.ProcessEnv,
+      | "DOTPAD_OFFICIAL_CREATOR_WALLET"
+      | "DOTPAD_OFFICIAL_BUYBACK_TREASURY"
+      | "DOTPAD_OFFICIAL_OPS_TREASURY"
+      | "DOTPAD_OFFICIAL_DEV_WALLET"
+      | "DOTPAD_OFFICIAL_MINT"
+      | "DOTPAD_OFFICIAL_NETWORK"
+      | "DOTPAD_OFFICIAL_ENABLED"
+      | "NEXT_PUBLIC_DOTPAD_NETWORK"
       | "RELAY_OFFICIAL_CREATOR_WALLET"
       | "RELAY_OFFICIAL_BUYBACK_TREASURY"
       | "RELAY_OFFICIAL_OPS_TREASURY"
       | "RELAY_OFFICIAL_DEV_WALLET"
       | "RELAY_OFFICIAL_MINT"
-      | "DOTPAD_OFFICIAL_MINT"
       | "RELAY_OFFICIAL_NETWORK"
       | "RELAY_OFFICIAL_ENABLED"
       | "NEXT_PUBLIC_RELAYPAD_NETWORK"
@@ -122,10 +149,10 @@ export function getRelayOfficialConfig(
   >,
 ): RelayOfficialConfig {
   const sources: Record<RelayOfficialRole, string | undefined> = {
-    W1: env.RELAY_OFFICIAL_CREATOR_WALLET,
-    W2: env.RELAY_OFFICIAL_BUYBACK_TREASURY,
-    W3: env.RELAY_OFFICIAL_OPS_TREASURY,
-    W4: env.RELAY_OFFICIAL_DEV_WALLET,
+    W1: dualEnv(env.DOTPAD_OFFICIAL_CREATOR_WALLET, env.RELAY_OFFICIAL_CREATOR_WALLET),
+    W2: dualEnv(env.DOTPAD_OFFICIAL_BUYBACK_TREASURY, env.RELAY_OFFICIAL_BUYBACK_TREASURY),
+    W3: dualEnv(env.DOTPAD_OFFICIAL_OPS_TREASURY, env.RELAY_OFFICIAL_OPS_TREASURY),
+    W4: dualEnv(env.DOTPAD_OFFICIAL_DEV_WALLET, env.RELAY_OFFICIAL_DEV_WALLET),
   };
   const invalid: RelayOfficialConfig["invalid"] = [];
   const wallets = RELAY_OFFICIAL_ROLES.map((role) => {
@@ -157,17 +184,26 @@ export function getRelayOfficialConfig(
     mint: mintRead.address,
     anyWalletConfigured: wallets.some((w) => w.address !== null),
     invalid,
-    enabled: env.RELAY_OFFICIAL_ENABLED === "true" || env.RELAY_OFFICIAL_ENABLED === "1",
+    enabled: dualEnv(env.DOTPAD_OFFICIAL_ENABLED, env.RELAY_OFFICIAL_ENABLED) === "true" ||
+      dualEnv(env.DOTPAD_OFFICIAL_ENABLED, env.RELAY_OFFICIAL_ENABLED) === "1",
   };
 }
 
 function relayOfficialNetworkFrom(
   env: Partial<
-    Pick<NodeJS.ProcessEnv, "RELAY_OFFICIAL_NETWORK" | "NEXT_PUBLIC_RELAYPAD_NETWORK">
+    Pick<
+      NodeJS.ProcessEnv,
+      | "DOTPAD_OFFICIAL_NETWORK"
+      | "RELAY_OFFICIAL_NETWORK"
+      | "NEXT_PUBLIC_DOTPAD_NETWORK"
+      | "NEXT_PUBLIC_RELAYPAD_NETWORK"
+    >
   >,
 ): ClusterId {
-  if (env.RELAY_OFFICIAL_NETWORK === "mainnet-beta") return "mainnet-beta";
-  if (!env.RELAY_OFFICIAL_NETWORK && env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta") {
+  // Phase 1 dual-read: DotPad names first, legacy RelayPad names as fallback.
+  const override = dualEnv(env.DOTPAD_OFFICIAL_NETWORK, env.RELAY_OFFICIAL_NETWORK);
+  if (override === "mainnet-beta") return "mainnet-beta";
+  if (!override && dualEnv(env.NEXT_PUBLIC_DOTPAD_NETWORK, env.NEXT_PUBLIC_RELAYPAD_NETWORK) === "mainnet-beta") {
     return "mainnet-beta";
   }
   return "devnet";

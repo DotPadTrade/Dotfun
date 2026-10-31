@@ -10,6 +10,7 @@
  * - All provider hosts are official documented endpoints; credentials are not
  *   used for the read paths (no keys exist), so none can leak.
  */
+import { currentNetworkRaw } from "../network-env";
 import { resolveServerNetworkConfig, getConnection } from "@/lib/connection";
 import { Connection } from "@solana/web3.js";
 import { clusterApiEndpoint, type ClusterId } from "../constants";
@@ -166,7 +167,7 @@ export async function getDiscovery(
   scannerFilters?: import("./index").ScannerFilters,
 ): Promise<DiscoveryResponse> {
   // Server-side reads use the dedicated provider (Alchemy when configured).
-  const cfg = resolveServerNetworkConfig(process.env.NEXT_PUBLIC_RELAYPAD_NETWORK);
+  const cfg = resolveServerNetworkConfig(currentNetworkRaw());
   const connection = getConnection(cfg);
   const cluster = cfg.cluster === "mainnet-beta" ? "mainnet-beta" : "devnet";
   const now = Date.now();

@@ -3,6 +3,7 @@
  * Compact top bar: global search (registry-backed, debounced), network
  * indicator, wallet status, quick Create action. No fabricated wallet state.
  */
+import { currentNetworkCluster } from "@/lib/network-env";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -48,9 +49,7 @@ interface SearchHit {
   mintAddress: string | null;
 }
 
-const NETWORK = (process.env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta"
-  ? "mainnet-beta"
-  : "devnet") as "mainnet-beta" | "devnet";
+const NETWORK = currentNetworkCluster();
 
 function NetworkIndicator() {
   const { connection } = useConnection();

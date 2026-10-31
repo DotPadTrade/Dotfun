@@ -1,5 +1,6 @@
 "use client";
 
+import { currentNetworkCluster } from "@/lib/network-env";
 import { useEffect, useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { Badge, Card } from "@/components/ui/primitives";
@@ -28,7 +29,7 @@ export default function SettingsPage() {
     };
   }, [connection]);
 
-  const network = process.env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta" ? "mainnet-beta" : "devnet";
+  const network = currentNetworkCluster();
 
   return (
     <div className="animate-fade-up mx-auto max-w-3xl">

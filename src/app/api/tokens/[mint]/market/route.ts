@@ -1,3 +1,4 @@
+import { currentNetworkRaw } from "@/lib/network-env";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { resolveServerNetworkConfig, getConnection } from "@/lib/connection";
@@ -53,7 +54,7 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ mint: strin
   if (cached && cached.expiresAt > now) {
     tradesPayload = cached.payload;
   } else {
-    const cfg = resolveServerNetworkConfig(process.env.NEXT_PUBLIC_RELAYPAD_NETWORK);
+    const cfg = resolveServerNetworkConfig(currentNetworkRaw());
     const connection = getConnection(cfg);
     tradesPayload = await fetchTokenMarket(connection, mint, {
       maxTx: parsed.data.maxTx,

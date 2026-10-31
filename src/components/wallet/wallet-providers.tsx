@@ -1,5 +1,6 @@
 "use client";
 
+import { currentNetworkCluster } from "@/lib/network-env";
 import { useCallback, useMemo, useState } from "react";
 import { WalletAdapterNetwork, type WalletError } from "@solana/wallet-adapter-base";
 import {
@@ -22,7 +23,7 @@ import { SolflareWalletAdapter } from "@/lib/wallet/solflare-adapter";
 
 export function WalletProviders({ children }: { children: React.ReactNode }) {
   const network =
-    process.env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta"
+    currentNetworkCluster() === "mainnet-beta"
       ? WalletAdapterNetwork.Mainnet
       : WalletAdapterNetwork.Devnet;
 

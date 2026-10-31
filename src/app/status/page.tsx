@@ -1,5 +1,6 @@
 "use client";
 /** Network status — live RPC reachability and the programs RelayPad uses. */
+import { currentNetworkCluster } from "@/lib/network-env";
 import { useEffect, useRef, useState } from "react";
 import { useConnection } from "@solana/wallet-adapter-react";
 import { Panel } from "@/components/dashboard/panel";
@@ -39,7 +40,7 @@ export default function StatusPage() {
   }, [connection]);
 
   const network =
-    process.env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta" ? "mainnet-beta" : "devnet";
+    currentNetworkCluster();
 
   return (
     <div className="animate-fade-up mx-auto w-full min-w-0 max-w-5xl">

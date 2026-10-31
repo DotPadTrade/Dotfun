@@ -7,6 +7,7 @@
  * wallet intelligence, and top holders. Every N/A is an honest "provider did
  * not supply this metric".
  */
+import { currentNetworkCluster } from "@/lib/network-env";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PriceChart } from "./price-chart";
 import { Badge, Card, CopyChip } from "@/components/ui/primitives";
@@ -14,7 +15,7 @@ import { explorerUrl, solscanUrl, type ClusterId } from "@/lib/constants";
 import { shortAddress, timeAgo } from "@/lib/format";
 
 // Build-time inlined network (no server round-trip in a client component).
-const CLUSTER: ClusterId = process.env.NEXT_PUBLIC_RELAYPAD_NETWORK === "mainnet-beta" ? "mainnet-beta" : "devnet";
+const CLUSTER: ClusterId = currentNetworkCluster();
 
 export interface MarketPayload {
   mint: string;
