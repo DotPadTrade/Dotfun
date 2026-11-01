@@ -20,6 +20,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Badge, Button, Card } from "@/components/ui/primitives";
 import { Icon } from "@/components/ui/icons";
+import { RelayPadLogo } from "@/components/brand/logo";
 import { copyText, type CopyResult } from "@/components/official/copy-text";
 import type { OfficialTokenView } from "@/lib/relay-official/token-display";
 
@@ -135,7 +136,7 @@ function renderCard(
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-mint-700/20 text-mint-400">
-            <Icon name="star" size={17} />
+            <RelayPadLogo size={22} className="object-contain" />
           </span>
           <div className="min-w-0">
             <h2 className="text-base font-semibold tracking-tight text-white">
