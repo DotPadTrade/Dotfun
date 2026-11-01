@@ -28,8 +28,8 @@ const KIND_OPTIONS: { kind: VanityPattern["kind"]; label: string }[] = [
 
 export default function VanityPage() {
   const vanity = useVanityMint();
-  const [pattern, setPattern] = useState("");
-  const [kind, setKind] = useState<VanityPattern["kind"]>("prefix");
+  const [pattern, setPattern] = useState("DOT");
+  const [kind, setKind] = useState<VanityPattern["kind"]>("suffix");
   const [caseInsensitive, setCaseInsensitive] = useState(false);
 
   const valid = isValidVanityPattern(pattern);
@@ -73,7 +73,7 @@ export default function VanityPage() {
             label={`${kind.charAt(0).toUpperCase()}${kind.slice(1)} (Base58)`}
             value={pattern}
             onChange={(e) => setPattern(caseInsensitive ? e.target.value : e.target.value.toUpperCase())}
-            placeholder="RLY"
+            placeholder="DOT"
             maxLength={8}
             hint="1–8 characters, Base58 only (no 0, O, I, l). Each extra character multiplies expected work by ~33."
             error={pattern.length > 0 && !valid ? "Invalid pattern: use 1–8 Base58 characters." : undefined}

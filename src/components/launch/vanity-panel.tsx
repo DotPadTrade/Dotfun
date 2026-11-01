@@ -83,7 +83,7 @@ export function VanityPanel({
             label={`${kind.charAt(0).toUpperCase()}${kind.slice(1)} (Base58)`}
             value={pattern}
             onChange={(e) => onPattern(caseInsensitive ? e.target.value : e.target.value.toUpperCase())}
-            placeholder="RLY"
+            placeholder="DOT"
             maxLength={8}
             hint="Base58 only (no 0, O, I, l). Each extra character multiplies the expected work by ~33."
             error={pattern.length > 0 && !valid ? "Invalid pattern: use 1–8 Base58 characters." : undefined}
