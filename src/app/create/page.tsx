@@ -23,7 +23,7 @@ import { Icon } from "@/components/ui/icons";
 
 const EMPTY_FORM: LaunchFormState = {
   name: "",
-  symbol: "",
+  symbol: "DOT",
   description: "",
   website: "",
   twitter: "",
@@ -196,7 +196,7 @@ export default function CreateTokenPage() {
             label="Symbol"
             value={form.symbol}
             onChange={(e) => set("symbol", e.target.value.toUpperCase())}
-            placeholder="RLYP"
+            placeholder="DOT"
             maxLength={10}
             hint="Max 10 characters, alphanumeric."
           />
